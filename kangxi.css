@@ -1,0 +1,150 @@
+
+body {
+	background-image: url(kangxi.jpg);
+	background-repeat: no-repeat;
+}
+
+/* 上方選單 */
+div.menu {
+	background: #C94343;
+	color: white;
+	position: absolute;
+	padding: 10px;
+	top: 20px;
+	border:solid 2px #fff;
+}
+
+div#menu_1 { left: 300px; }
+div#menu_9 { left: 500px; }
+
+div.menu a:link {color:#fff; text-decoration:none;}
+div.menu a:visited {color:#fff; text-decoration:none;}
+div.menu a:hover {color:#fff; text-decoration:none;}
+div.menu a:active {color:#fff; text-decoration:none;}
+
+/* 連結 */
+a:link {color:#000; text-decoration:none;}
+a:visited {color:#000; text-decoration:none;}
+a:hover {color:#000; text-decoration:none;}
+a:active {color:#000; text-decoration:none;}
+
+/* 各頁面 */
+
+div.not_show {display: none;}
+
+div#page1 , div#page2 , div#page3 {
+	position: absolute;
+	background: #96523D;
+	padding: 20px;
+	top: 550px; 
+	left: 50px;
+	box-shadow: -4px 4px 10px #666666;
+	border:solid 0px #96523D;
+	border-radius: 20px;
+}
+
+div#page5 {
+	position: absolute;
+	background: #BFB591;
+	padding-top: 40px; 
+	padding-left: 20px; 
+	padding-right: 20px; 
+	padding-bottom: 40px; 
+	top: 200px; 
+	left: 800px;
+	border:solid 1px #96523D;
+	border-radius: 5px;
+}
+div#page5 div {
+	padding: 0px; 
+	width: 100%;
+	height: 100%;
+	background: white;
+}
+
+div#page5 p { padding: 20px;}
+
+div#page6 , div#page9 {
+	position: absolute;
+	background: #BFB591;
+	padding-top: 40px; 
+	padding-left: 20px; 
+	padding-right: 20px; 
+	padding-bottom: 40px; 
+	top: 200px; 
+	left: 50px;
+	width: 900px;
+	border:solid 1px #96523D;
+	border-radius: 5px;
+}
+
+div#page6 div , div#page9 div {
+	padding: 0px; 
+	width: 100%;
+	height: 100%;
+	background: white;
+}
+
+div#page5 span , div#page6 span , div#page9 span {
+	display: inline-block;
+	padding : 5px;
+	margin : 5px;
+	border:solid 1px #dddddd;
+}
+
+div#page7 {
+	position: absolute;
+	background: white;
+	padding: 20px;
+	top: 150px; 
+	left: 50px;
+	width : 300px;
+	box-shadow: -4px 4px 10px #666666;
+	border:solid 0px #96523D;
+	border-radius: 20px;
+}
+
+#out80 , #say80 {
+	padding: 20px;
+	border:solid 4px #FEF203;
+}
+
+span.title {color:#fff;}
+
+span.msg {	color: red;}
+
+/* 對話框 */
+div#message {
+	top:200px;
+	left:600px;
+	width:250px;
+	height:90px;
+	text-align:center;
+	background:#fff;
+	position:relative;
+	border: solid 1px #333;
+	margin:30px;
+	padding:30px;
+}
+
+#message .arrow1{
+	width:0px;
+	height:0px;
+	border-width:15px;
+	border-style:solid;
+	border-color:transparent #333 transparent  transparent ;
+	position:absolute;
+	top:60%;
+	left:-30px;
+}
+
+#message .arrow2{
+	width:0px;
+	height:0px;
+	border-width:15px;
+	border-style:solid;
+	border-color:transparent #fff transparent transparent ;
+	position:absolute;
+	top:60%;
+	left:-29px;
+}
