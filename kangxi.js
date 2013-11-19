@@ -202,62 +202,94 @@ var sele_name = [];		// 入闈陣列, 和 name23 陣列同步, 裡面是 0 或 1
 $( document ).ready(function() {
 	$("#form1").submit(
 		function() {
-			name1 = $("#name1").val();
+			name1 = $("#input_name1").val();
 			if(name1 == "")
 			{
-				show_msg("請輸入姓氏", "red");
-				$("#name1").focus();
+				show_msg(9);
+				$("#input_name1").focus();
 				return false;
 			}	  				
 			num1 = get_name_num(name1);
 			if(num1 == 0) return false;
-			show_msg("愛卿何事？<br/>朕可為您效勞！");
+			show_msg(1);
 			$("#page1").hide();
 			$("#page2").show();
+			$("#number").focus();
 			return false;
 	});
 	$("#form2").submit(
 		function() {
-			name2 = $("#name2").val();
-			if(name2 == "")
-			{
-				show_msg("請輸入部件", "red");
-				$("#name2").focus();
-				return false;
-			}
-			num2 = get_name_num(name2);
-			if(num2 == 0) return false;
-			show_msg("愛卿何事？<br/>朕可為您效勞！");
-			$("#page2").hide();
-			$("#page3").show();
-			return false;
-	});
-	$("#form3").submit(
-		function() {
-			number = $("#number").val();
+			number = $("#input_number").val();
 			if($.isNumeric(number) == false)
 			{
-				show_msg("請輸入總筆劃", "red");
+				show_msg(9);
 				$("#number").focus();
 				return false;
 			}
+			if(number > 90 || number <= (num1 + 1))
+			{
+				show_msg(9);
+				$("#number").focus();
+				return false;
+			}
+			/*
 			if(number > (num1 + num2 + 30) || number <= (num1 + num2))
 			{
 				show_msg("總筆劃請介於 " + (num1 + num2 + 1) + " ~ " + (num1 + num2 + 30) + " 之間", "red");
 				$("#number").focus();
 				return false;
 			}
-			num3 = number - num1 - num2;
-			if (number > 80) number = number - 80;
-			$("#page3").hide();
-			show_msg("<a href='' onclick='show_page5(); return false;'>朕知道了！</a>", "blue");
+			*/
+			$("#page2").hide();
+			$("#page3").show();
+			show_msg(1);
+			$("#name2").focus();
 			return false;
 	});
-	$("#show_page6").click(
+	$("#form3").submit(
+		function() {
+			name2 = $("#input_name2").val();
+			if(name2 == "")
+			{
+				show_msg(9);
+				$("#name2").focus();
+				return false;
+			}
+			num2 = get_name_num(name2);
+			if(num2 == 0) return false;
+			
+			num3 = number - num1 - num2;
+			if(num3 < 1 || num3 > 30)
+			{
+				show_msg(9);
+				return false;
+			}
+			if (number > 80) number = number - 80;
+			show_msg(2);
+			$("#page3").hide();
+			return false;
+	});
+	$("#page1_next").click(
+		function() {
+			$("#form1").submit();
+			return false;
+	});
+	$("#page2_next").click(
+		function() {
+			$("#form2").submit();
+			return false;
+	});
+	$("#page3_next").click(
+		function() {
+			$("#form3").submit();
+			return false;
+	});
+	$("#page5_next").click(
 		function() {
 			// 畫出 page 6 候選字介面
 			draw_page6();
 			
+			show_msg(0);
 			$("#page5").hide();
 			$("#page6").show();
 			return false;
@@ -270,26 +302,35 @@ $( document ).ready(function() {
 	  		$("#page5").hide();
 	  		$("#page6").hide();
 	  		$("#page7").hide();
-	  		$("#page9").hide();
+	  		$("#page8").hide();
 	  		$("#page1").show();
-  			show_msg("愛卿何事？<br/>朕可為您效勞！");
+  			show_msg(1);
   			return false;
 	});
-	$("#menu_9").click(
+	$("#menu_3").click(
 		function() {
 			// 上方入闈榜單選單
-			// 畫出 page 9 候選字介面
-			draw_page9();
+			// 畫出 page 7 候選字介面
+			draw_page7();
 	  		$("#page1").hide();
 	  		$("#page2").hide();
 	  		$("#page3").hide();
 	  		$("#page5").hide();
 	  		$("#page6").hide();
-	  		$("#page7").hide();
-			show_msg("");
-	  		$("#page9").show();
+	  		$("#page8").hide();
+			show_msg(0);
+	  		$("#page7").show();
 	  		return false;
 	});
+	$("#menu_5").click(
+		function() {
+			location.assign("reference.htm");
+	});
+	$("#menu_6").click(
+		function() {
+			location.assign("about.htm");
+	});
+	$("#input_name1").focus();
 });
 
 // 由文字取得筆畫
@@ -303,11 +344,11 @@ function get_name_num(name)
 		}
 	}
 	msg = "錯誤：此 '" + name + "' 字不在資料庫中, 無法判斷";
-	show_msg(msg, "red");
+	show_msg(9);
 	return 0;
 }
 
-// 由筆畫取得文字
+// 由筆畫取得名字
 function get_name23()
 {
 	name23 = words[num3].split("");
@@ -318,14 +359,18 @@ function get_name23()
 	}
 }
 
+// 呈現第五頁
 function show_page5()
 {
 	// 取得結果
 	get_name23();
 	// 畫出 page 5 候選字介面
 	draw_page5();
+	show_msg(5);
 	
-	show_msg("");
+	// 解除滑鼠游標及臨時產生的連結
+	$("#message").css("cursor" , "default");
+	$("#message").unbind( "click" );
 	$("#page5").show();
 	return false;
 }
@@ -338,26 +383,28 @@ function draw_page5()
 	count = 0;
 	for(i=0; i<name23.length; i++)
 	{
-		htm = htm + "<span id='name_" + i + "'>" + name23[i] + "</span><br />";		// <span id='name_1'>xx</span>
+		htm = htm + draw_one(i, 5);
 		count++;
 		if(count == max) break;
 	}
-	$("#out_first").html(htm);
+	$("#out_name_prelist").html(htm);
 	
-	// 設定姓名按下去之後的程式
-	$("#page5 span").click(
+	// 設定姓名旁O或X按下去之後的程式
+	$("#page5 .select").click(
 		function() {
-			myid = $(this).attr("id");
-			myid_num = parseInt(myid.slice(5) , 10);
+			myid = $(this).parent().attr("id");		// id=page5_name_1
+			myid_num = parseInt(myid.slice(11) , 10);
 			sele_name[myid_num] = 1 - sele_name[myid_num];	// 在 0 與 1 之間切換
 			
 			if(sele_name[myid_num] == 0)
 			{
-				$(this).css("border-color", "#dddddd");
+				$(this).attr("src" , "image/o.png");
+				$(this).next().css("visibility", "hidden");
 			}
 			else
 			{
-				$(this).css("border-color", "#ff0000");
+				$(this).attr("src" , "image/x.png");
+				$(this).next().css("visibility", "visible");
 			}
 	});
 }
@@ -369,40 +416,43 @@ function draw_page6()
 	count = 0;
 	for(i=0; i<name23.length; i++)
 	{
-		htm = htm + "<span id='name-" + i + "'>" + name23[i] + "</span>";		// <span id='name-1'>xx</span>
+		htm = htm + draw_one(i, 6);
 	}
-	$("#out_all").html(htm);
+	$("#out_name_all").html(htm);
 	
 	// 先處理 page5 選取的內容
 	for(i=0; i<name23.length; i++)
 	{
 		if(sele_name[i] == 1)
 		{
-			myid = "#name-" + i;
-			$(myid).css("border-color", "#ff0000");
+			myid = "#page6_name_" + i + " .select";
+			$(myid).attr("src" , "image/x.png");
+			$(myid).next().css("visibility", "visible");
 		}
-	}		
+	}
 	
-	// 設定姓名按下去之後的程式
-	$("#page6 span").click(
+	// 設定姓名旁O或X按下去之後的程式
+	$("#page6 .select").click(
 		function() {
-			myid = $(this).attr("id");
-			myid_num = parseInt(myid.slice(5) , 10);
+			myid = $(this).parent().attr("id");		// id=page5_name_1
+			myid_num = parseInt(myid.slice(11) , 10);
 			sele_name[myid_num] = 1 - sele_name[myid_num];	// 在 0 與 1 之間切換
 			
 			if(sele_name[myid_num] == 0)
 			{
-				$(this).css("border-color", "#dddddd");
+				$(this).attr("src" , "image/o.png");
+				$(this).next().css("visibility", "hidden");
 			}
 			else
 			{
-				$(this).css("border-color", "#ff0000");
+				$(this).attr("src" , "image/x.png");
+				$(this).next().css("visibility", "visible");
 			}
 	});
 }
 
 // 畫出入闈字介面
-function draw_page9()
+function draw_page7()
 {
 	htm = "";
 	count = 0;
@@ -410,63 +460,112 @@ function draw_page9()
 	{
 		if(sele_name[i] == 1)
 		{
-			htm = htm + "<span><a id='sele_name_" + i + "'>" + name23[i] + " </a><a id='dele_name_" + i + "'> X</a></span>";		
-			// <span><a id='sele_name_1'>xx </a><a id='dele_name_1'> X</a></span>
+			htm = htm + draw_one(i, 7);
 		}
 	}
-	$("#out_select").html(htm);
+	$("#out_name_sele").html(htm);
+	for(i=0; i<name23.length; i++)
+	{
+		if(sele_name[i] == 1)
+		{
+			myid = "#page7_name_" + i + " .select";
+			$(myid).attr("src" , "image/x.png");
+			$(myid).next().css("visibility", "visible");
+		}
+	}
 	
-	// 設定姓名按下去之後的程式
-	$("#page9 a").click(
+	// 設定姓名旁X按下去之後的程式
+	$("#page7 .select").click(
 		function() {
-			myid = $(this).attr("id");
-			myid_num = parseInt(myid.slice(10) , 10);
-			
-			// 移除某一個
-			if(myid.slice(0,4) == "dele")
-			{
-				$(this).parent().hide();
-				sele_name[myid_num] = 0;
-			}
-			else
-			{
-				// 看某名字的聖旨
-				show_page7(myid_num);
-			}
+			myid = $(this).parent().attr("id");		// id=page7_name_1
+			myid_num = parseInt(myid.slice(11) , 10);
+			$(this).parent().hide();
+			sele_name[myid_num] = 0;
+	});
+	// 設定姓名(紅圈)按下去之後的程式
+	// 因為名字的 z-index=-1 , 無法按下, 所以把紅圈放大, 由按紅圈來處理
+	$("#page7 .showred").click(
+		function() {
+			myid = $(this).parent().attr("id");		// id=page7_name_1
+			myid_num = parseInt(myid.slice(11) , 10);
+			show_page8(myid_num);
 	});
 }
 
-// 呈現 page7 聖旨
-function show_page7(myid_num)
+function draw_one (myid, page)
 {
-	$("#page7_name").html(name23[myid_num]);
+	/* 每一個人要呈現的樣子
+	<div id='page5_name_1' class='one_name>
+		<img class='select' src='image/o.png'/>			<= float:right;
+		<img class='showred' src='image/redsele.png'/>	<= float:right;
+		<div>名字</div> 								<= z-index:-1;
+	</div>
+	*/
+	htm = "<div id='page" + page + "_name_" + myid + "' class='one_name'>\n";
+	htm = htm + "<img class='select' src='image/o.png'/>\n";
+	htm = htm + "<img class='showred' src='image/redsele.png'/>\n";
+	htm = htm + "<div>" + name23[myid] + "</div>\n</div>\n";
+	return htm;
+}
+
+// 呈現 page8 聖旨
+function show_page8(myid_num)
+{
+	$("#page8_name").html(name23[myid_num]);
+	
+	good_pos = out80[number].indexOf("（");
+	good_word = out80[number].slice(good_pos+1,-1);
+	
+	$("#page8_good").html(good_word);
 	$("#out80").html(out80[number]);
 	$("#say80").html(say80[number]);
 	
-	$("#page9").hide();
-	$("#page7").show();
+	$("#page7").hide();
+	$("#page8").show();
 
 	return false;		
 }
 
 // 秀出訊息
-function show_msg(msg, color)
+// 0: 不呈現 1: 愛卿何事? 2:朕知道了 5:page5 的提示畫面
+function show_msg(msg)
 {
-	if(msg == "")
+	if(msg == 0)
 	{
 		$("#message").hide();
 	}
+	else if(msg == 1)
+	{
+		$("#message").css("left", "590px");
+		$("#message").css("top", "190px");
+		$("#img_message").attr("src", "image/msg_what.png");
+		$("#message").show();
+	}
+	else if(msg == 2)
+	{
+		$("#message").css("left", "605px");
+		$("#message").css("top", "195px");
+		$("#img_message").attr("src", "image/msg_isee.png");
+		$("#message").css("cursor" , "pointer");
+		// 產生臨時的連結
+		$("#message").click(
+			function () {
+				show_page5();
+		});
+		$("#message").show();
+	}
+	else if(msg == 5)
+	{
+		$("#message").css("left", "608px");
+		$("#message").css("top", "168px");
+		$("#img_message").attr("src", "image/msg_page5.png");
+		$("#message").show();
+	}
 	else
 	{
-		$("#message_txt").html(msg);
-		if(color===undefined)
-		{
-			$("#message_txt").css("color", "black");
-		}
-		else
-		{
-			$("#message_txt").css("color",color);
-		}	
+		$("#message").css("left", "593px");
+		$("#message").css("top", "193px");
+		$("#img_message").attr("src", "image/msg_err.png");
 		$("#message").show();
 	}
 }

@@ -7,90 +7,64 @@
 	<script src="jquery-1.10.2.min.js"></script>
 	<script src="kangxi.js"></script>
 </head>
-	<body>
-	    <!-- head ----------------------------------------------------- -->
-	    <div id="menu_1" class="menu"><a href="">鐵口直斷</a></div>
-	    <div id="menu_9" class="menu"><a href="">入闈榜單</a></div>
-	    <!-- page 1 ----------------------------------------------------- -->
-		<div id="page1">
-			<form id="form1" name="form1" method="post" action="">
-			    <label>
-			    <span class="title">(1) 請輸入姓氏</span><br />
-			    <input type="text" name="name1" id="name1">
-		        </label>
-		        <br />
-			    <label>
-			    <input type="submit" id="submit1" value="下一步">
-			    </label>
-			</form>
-	    </div>
-	    <!-- page 2 ----------------------------------------------------- -->
-		<div id="page2" class="not_show">
-			<form id="form2" name="form2" method="post" action="">
-			    <label>
-		        <span class="title">(2) 請輸入需含的部件</span><br />
-			    <input type="text" name="name2" id="name2">
-			    </label>
-			    <br />
-			    <label>
-			    <input type="submit" id="submit2" value="下一步">
-			    </label>
-			</form>
-	    </div>
-	    <!-- page 3 ----------------------------------------------------- -->
-		<div id="page3" class="not_show">
-			<form id="form3" name="form3" method="post" action="">
-			    <label>
-			    <span class="title">(3) 請輸入總筆劃</span><br />
-		        <input type="text" name="number" id="number">
-		        </label>
-		        <br />
-			    <label>
-			    <input type="submit" id="submit3" value="下一步">
-			    </label>
-			</form>
-	    </div>
-	    <!-- page 4 ----------------------------------------------------- -->
-	    <!-- page 5 ----------------------------------------------------- -->
-		<div id="page5" class="not_show">
-			<div><br />　候選字詞　
-				<p id="out_first">
-				</p>
-				　<a href="" id="show_page6">...</a>
-				<br />　
-			</div>
-	    </div>
-	    <!-- page 6 ----------------------------------------------------- -->
-		<div id="page6" class="not_show">
-			<div><br />　候選字詞　
-				<p id="out_all">
-				</p>
-			</div>
-	    </div>
-	    <!-- page 9 ----------------------------------------------------- -->
-		<div id="page9" class="not_show">
-			<div><br />　入闈：
-				<p id="out_select">
-				</p>
-			</div>
-	    </div>
-	    <!-- page 7 ----------------------------------------------------- -->
-		<div id="page7" class="not_show">
-			<p id="page7_name"></p>
-			<div>八十一數靈動解析：
-				<p id="out80">
-				</p>
-			</div>
-			<div>聖旨解析：
-				<p id="say80">
-				</p>
-			</div>
-	    </div>
-	    <!-- page message ----------------------------------------------------- -->
-		<div id="message">
-			<span class="arrow1"></span>
-		    <span class="arrow2"></span>
-			<p id="message_txt">愛卿何事？<br/>朕可為您效勞！</p>
-	    </div>
-	</body>
+<body>
+    <!-- 上方選單按鈕 ----------------------------------------------- -->
+    <div id="menu_1" class="menu"></div>
+    <div id="menu_3" class="menu"></div>
+    <div id="menu_5" class="menu"></div>
+    <div id="menu_6" class="menu"></div>
+    <!-- page 1 ----------------------------------------------------- -->
+	<div id="page1">
+		<form id="form1" name="form1" method="post" action="">
+			<img id="img_ask_name1" src="image/ask_name1.png"/>
+		    <input type="text" name="input_name1" id="input_name1">
+		    <div id="page1_next"></div>
+		</form>
+    </div>
+    <!-- page 2 ----------------------------------------------------- -->
+	<div id="page2" class="not_show">
+		<form id="form2" name="form2" method="post" action="">
+			<img id="img_ask_number" src="image/ask_number.png"/>
+		    <input type="text" name="input_number" id="input_number">
+		    <div id="page2_next"></div>
+		</form>
+    </div>
+    <!-- page 3 ----------------------------------------------------- -->
+	<div id="page3" class="not_show">
+		<form id="form3" name="form3" method="post" action="">
+			<img id="img_ask_name2" src="image/ask_name2.png"/>
+		    <input type="text" name="input_name2" id="input_name2">
+		    <div id="page3_next"></div>
+		</form>
+    </div>
+    <!-- page 4 ----------------------------------------------------- -->
+    <!-- page 5 ----------------------------------------------------- -->
+	<div id="page5" class="not_show">
+		<img id="img_name_prelist" src="image/name_prelist.png"/>
+		<div id="out_name_prelist"></div>
+	    <div id="page5_next"></div>
+    </div>
+    <!-- page 6 ----------------------------------------------------- -->
+	<div id="page6" class="not_show">
+		<img id="img_name_all" src="image/name_all.png"/>
+		<div id="out_name_all"></div>
+    </div>
+    <!-- page 7 ----------------------------------------------------- -->
+	<div id="page7" class="not_show">
+		<img id="img_name_sele" src="image/name_sele.png"/>
+		<div id="out_name_sele"></div>
+    </div>
+    <!-- page 8 ----------------------------------------------------- -->
+	<div id="page8" class="not_show">
+		<img id="img_analysis" src="image/analysis.png"/>
+		<div id="page8_name"></div>
+		<div id="page8_good"></div>
+		<div id="out80"></div>
+		<div id="say80"></div>
+    </div>
+    <!-- page message ----------------------------------------------------- -->
+	<div id="message">
+		<img id="img_message" src="image/msg_what.png"></img>
+    </div>
+</body>
 </html>

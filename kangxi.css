@@ -1,150 +1,179 @@
-
 body {
-	background-image: url(kangxi.jpg);
+	background-image: url(image/main_back.jpg);
 	background-repeat: no-repeat;
+	font-family: 微軟正黑體;
 }
+
+/* 各頁面 */
+div {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+}
+div.not_show {display: none;}
 
 /* 上方選單 */
 div.menu {
-	background: #C94343;
-	color: white;
 	position: absolute;
-	padding: 10px;
-	top: 20px;
-	border:solid 2px #fff;
+	top: 99px;
+	cursor: pointer;
 }
+div#menu_1 { left: 352px; width: 85px; height: 24px;}
+div#menu_3 { left: 540px; width: 85px; height: 24px;}
+div#menu_5 { left: 773px; top: 88px; width: 70px; height: 16px;}
+div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
 
-div#menu_1 { left: 300px; }
-div#menu_9 { left: 500px; }
-
-div.menu a:link {color:#fff; text-decoration:none;}
-div.menu a:visited {color:#fff; text-decoration:none;}
-div.menu a:hover {color:#fff; text-decoration:none;}
-div.menu a:active {color:#fff; text-decoration:none;}
-
-/* 連結 */
-a:link {color:#000; text-decoration:none;}
-a:visited {color:#000; text-decoration:none;}
-a:hover {color:#000; text-decoration:none;}
-a:active {color:#000; text-decoration:none;}
-
-/* 各頁面 */
-
-div.not_show {display: none;}
-
-div#page1 , div#page2 , div#page3 {
+/* 前三頁 問問題 */
+#img_ask_name1 , #img_ask_number , #img_ask_name2 {
 	position: absolute;
-	background: #96523D;
-	padding: 20px;
-	top: 550px; 
-	left: 50px;
-	box-shadow: -4px 4px 10px #666666;
-	border:solid 0px #96523D;
-	border-radius: 20px;
+	left: 125px;
+	top: 220px;
+	box-shadow: 5px 5px 10px #333;
 }
-
-div#page5 {
+#input_name1 , #input_number , #input_name2 {
 	position: absolute;
-	background: #BFB591;
-	padding-top: 40px; 
-	padding-left: 20px; 
-	padding-right: 20px; 
-	padding-bottom: 40px; 
-	top: 200px; 
-	left: 800px;
-	border:solid 1px #96523D;
-	border-radius: 5px;
+	left: 162px;
+	top: 262px;
+	width: 220px;
+	height: 32px;
+	background: #000;
+	border: solid 0px #000;
+	color : white;
+	text-align: center;
+	font-size: 18px;
 }
-div#page5 div {
-	padding: 0px; 
-	width: 100%;
-	height: 100%;
-	background: white;
+#page1_next , #page2_next , #page3_next {
+	left: 160px;
+	top: 316px;
+	width: 227px;
+	height: 28px;
+	cursor: pointer;
 }
 
-div#page5 p { padding: 20px;}
-
-div#page6 , div#page9 {
+/* 第五頁 列出基本候選字 */
+#img_name_prelist {
 	position: absolute;
-	background: #BFB591;
-	padding-top: 40px; 
-	padding-left: 20px; 
-	padding-right: 20px; 
-	padding-bottom: 40px; 
-	top: 200px; 
-	left: 50px;
-	width: 900px;
-	border:solid 1px #96523D;
-	border-radius: 5px;
+	left: 145px;
+	top: 190px;
+	box-shadow: 5px 5px 10px #333;
+	z-index: -10;
+}
+#out_name_prelist {
+	left: 236px;
+	top: 291px;
+	width: 100px;
+	height: 195px;
+	color : white;
+	text-align: center;
+}
+#page5_next {
+	left: 240px;
+	top: 492px;
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
 }
 
-div#page6 div , div#page9 div {
-	padding: 0px; 
-	width: 100%;
-	height: 100%;
-	background: white;
-}
-
-div#page5 span , div#page6 span , div#page9 span {
+/* 每一個人名 */
+.one_name { 
+	position: static;
 	display: inline-block;
-	padding : 5px;
-	margin : 5px;
-	border:solid 1px #dddddd;
+	margin: 3px;
+	width: 80px;
+	color : white;
+}
+.one_name .select { 
+	float : right; 
+	margin-left: 6px; 
+	cursor: pointer;
+}
+.one_name .showred { 
+	float : right; 
+	padding-left: 35px; 
+	padding-top: 13px; 
+	visibility:hidden;
+}
+.one_name > div { 
+	z-index: -1; 
+	font-size: 22px;
 }
 
-div#page7 {
+/* 第六頁, 第七頁 */
+#img_name_all , #img_name_sele {
 	position: absolute;
-	background: white;
-	padding: 20px;
-	top: 150px; 
-	left: 50px;
-	width : 300px;
-	box-shadow: -4px 4px 10px #666666;
-	border:solid 0px #96523D;
-	border-radius: 20px;
+	left: 145px;
+	top: 190px;
+	box-shadow: 5px 5px 10px #333;
+	z-index: -10;
+}
+#out_name_all , #out_name_sele {
+	left: 260px;
+	top: 306px;
+	width: 500px;
+	height: 200px;
+	color : white;
+	text-align: left;
+	overflow: auto;
+	scrollbar-base-color: #57311F;
+	scrollbar-track-color: #AA5222;
+}
+#page7 .showred {
+	cursor: pointer;
 }
 
-#out80 , #say80 {
-	padding: 20px;
-	border:solid 4px #FEF203;
+/* 第八頁 聖旨 */
+#img_analysis {
+	position: absolute;
+	left: 120px;
+	top: 200px;
+	box-shadow: 5px 5px 10px #333;
+}
+#page8_name {
+	left: 165px;
+	top: 245px;
+	width: 80px;
+	height: 45px;
+	color : #C48617;
+	text-align: center;
+	font-size: 36px;
+	font-weight:bold;
+}
+#page8_good {
+	left: 260px;
+	top: 250px;
+	width: 100px;
+	height: 25px;
+	color : white;
+	text-align: center;
+	font-size: 24px;
+}
+#out80 {
+	left: 165px;
+	top: 300px;
+	width: 215px;
+	height: 83px;
+	color : white;
+	text-align: left;
+	font-size: 18px;
+}
+#say80 {
+	left: 165px;
+	top: 440px;
+	width: 210px;
+	height: 85px;
+	color : white;
+	text-align: left;
+	font-size: 18px;
 }
 
-span.title {color:#fff;}
-
-span.msg {	color: red;}
-
-/* 對話框 */
+/* 最初的對話框 */
 div#message {
-	top:200px;
-	left:600px;
-	width:250px;
-	height:90px;
-	text-align:center;
-	background:#fff;
-	position:relative;
-	border: solid 1px #333;
-	margin:30px;
-	padding:30px;
+	top:190px;
+	left:590px;
 }
 
-#message .arrow1{
-	width:0px;
-	height:0px;
-	border-width:15px;
-	border-style:solid;
-	border-color:transparent #333 transparent  transparent ;
-	position:absolute;
-	top:60%;
-	left:-30px;
-}
-
-#message .arrow2{
-	width:0px;
-	height:0px;
-	border-width:15px;
-	border-style:solid;
-	border-color:transparent #fff transparent transparent ;
-	position:absolute;
-	top:60%;
-	left:-29px;
-}
+/* chrome 捲軸 */
+::-webkit-scrollbar { background-color:#AA5222; }
+::-webkit-scrollbar-button       { background-color:#492E21;}
+::-webkit-scrollbar-track-piece  { background-color:#AA5222;}
+::-webkit-scrollbar-thumb { -webkit-border-radius: 8px; background-color: #57311F;}
