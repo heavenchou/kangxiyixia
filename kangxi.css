@@ -16,12 +16,16 @@ div.not_show {display: none;}
 div.menu {
 	position: absolute;
 	top: 99px;
+	top: 96px;
 	cursor: pointer;
 }
-div#menu_1 { left: 352px; width: 85px; height: 24px;}
-div#menu_3 { left: 540px; width: 85px; height: 24px;}
+div#menu_1 { left: 350px; width: 88px; height: 28px;}
+div#menu_2 { left: 445px; width: 88px; height: 28px; cursor: default;}
+div#menu_3 { left: 538px; width: 88px; height: 28px;}
+div#menu_4 { left: 633px; width: 88px; height: 28px; cursor: default;}
 div#menu_5 { left: 773px; top: 88px; width: 70px; height: 16px;}
 div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
+
 
 /* 前三頁 問問題 */
 #img_ask_name1 , #img_ask_number , #img_ask_name2 {

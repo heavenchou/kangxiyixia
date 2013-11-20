@@ -206,15 +206,24 @@ $( document ).ready(function() {
 			if(name1 == "")
 			{
 				show_msg(9);
+				$("#input_name1").attr("placeholder","請輸入姓氏");
 				$("#input_name1").focus();
 				return false;
 			}	  				
 			num1 = get_name_num(name1);
-			if(num1 == 0) return false;
+			if(num1 == 0)
+			{
+				show_msg(9);
+				$("#input_name1").val("");
+				$("#input_name1").attr("placeholder","此字不在資料庫中");
+				$("#input_name1").focus();
+				return false;
+			}
 			show_msg(1);
 			$("#page1").hide();
 			$("#page2").show();
-			$("#number").focus();
+			$("#input_number").focus();
+			$("#input_number").attr("placeholder","");
 			return false;
 	});
 	$("#form2").submit(
@@ -223,13 +232,25 @@ $( document ).ready(function() {
 			if($.isNumeric(number) == false)
 			{
 				show_msg(9);
-				$("#number").focus();
+				$("#input_number").val("");
+				$("#input_number").attr("placeholder","請輸入數字");
+				$("#input_number").focus();
 				return false;
 			}
-			if(number > 90 || number <= (num1 + 1))
+			if(number <= num1 + 1)
 			{
 				show_msg(9);
-				$("#number").focus();
+				$("#input_number").val("");
+				$("#input_number").attr("placeholder","總筆劃太少了");
+				$("#input_number").focus();
+				return false;
+			}
+			if(number > ((words.length -1) * 2 ) + num1)	// 每個字最多 30 劃
+			{
+				show_msg(9);
+				$("#input_number").val("");
+				$("#input_number").attr("placeholder","總筆劃太大了");
+				$("#input_number").focus();
 				return false;
 			}
 			/*
@@ -243,7 +264,8 @@ $( document ).ready(function() {
 			$("#page2").hide();
 			$("#page3").show();
 			show_msg(1);
-			$("#name2").focus();
+			$("#input_name2").attr("placeholder","");
+			$("#input_name2").focus();
 			return false;
 	});
 	$("#form3").submit(
@@ -252,21 +274,42 @@ $( document ).ready(function() {
 			if(name2 == "")
 			{
 				show_msg(9);
-				$("#name2").focus();
+				$("#input_name2").val("");
+				$("#input_name2").attr("placeholder","請輸入字詞");
+				$("#input_name2").focus();
 				return false;
 			}
 			num2 = get_name_num(name2);
-			if(num2 == 0) return false;
-			
-			num3 = number - num1 - num2;
-			if(num3 < 1 || num3 > 30)
+			if(num2 == 0)
 			{
 				show_msg(9);
+				$("#input_name2").val("");
+				$("#input_name2").attr("placeholder","此字不在資料庫中");
+				$("#input_name2").focus();
+				return false;
+			}
+			
+			num3 = number - num1 - num2;
+			if(num3 < 1)
+			{
+				show_msg(9);
+				$("#input_name2").val("");
+				$("#input_name2").attr("placeholder","此字筆劃太多");
+				return false;
+			}
+			if(num3 > 30)
+			{
+				show_msg(9);
+				$("#input_name2").val("");
+				$("#input_name2").attr("placeholder","此字筆劃太少");
 				return false;
 			}
 			if (number > 80) number = number - 80;
 			show_msg(2);
 			$("#page3").hide();
+			$("#message").delay(1000).fadeOut(1000, function () {
+				show_page5();
+			});
 			return false;
 	});
 	$("#page1_next").click(
@@ -294,6 +337,14 @@ $( document ).ready(function() {
 			$("#page6").show();
 			return false;
 	});
+	$("#menu_1").mouseenter(
+		function() {
+			$("#menu_1").css("background-image" , "url(image/menu1.png)");
+	});
+	$("#menu_1").mouseleave(
+		function() {
+			$("#menu_1").css("background-image" , "");
+	});
 	$("#menu_1").click(
 		function() {
 		  	// 上方鐵口直斷選單
@@ -303,9 +354,24 @@ $( document ).ready(function() {
 	  		$("#page6").hide();
 	  		$("#page7").hide();
 	  		$("#page8").hide();
-	  		$("#page1").show();
-  			show_msg(1);
+	  		show_page1();
   			return false;
+	});
+	$("#menu_2").mouseenter(
+		function() {
+			$("#menu_2").css("background-image" , "url(image/menu2.png)");
+	});
+	$("#menu_2").mouseleave(
+		function() {
+			$("#menu_2").css("background-image" , "");
+	});
+	$("#menu_3").mouseenter(
+		function() {
+			$("#menu_3").css("background-image" , "url(image/menu3.png)");
+	});
+	$("#menu_3").mouseleave(
+		function() {
+			$("#menu_3").css("background-image" , "");
 	});
 	$("#menu_3").click(
 		function() {
@@ -322,6 +388,14 @@ $( document ).ready(function() {
 	  		$("#page7").show();
 	  		return false;
 	});
+	$("#menu_4").mouseenter(
+		function() {
+			$("#menu_4").css("background-image" , "url(image/menu4.png)");
+	});
+	$("#menu_4").mouseleave(
+		function() {
+			$("#menu_4").css("background-image" , "");
+	});
 	$("#menu_5").click(
 		function() {
 			location.assign("reference.htm");
@@ -330,7 +404,7 @@ $( document ).ready(function() {
 		function() {
 			location.assign("about.htm");
 	});
-	$("#input_name1").focus();
+	// $("#input_name1").focus();
 });
 
 // 由文字取得筆畫
@@ -343,8 +417,8 @@ function get_name_num(name)
 			return i;
 		}
 	}
-	msg = "錯誤：此 '" + name + "' 字不在資料庫中, 無法判斷";
-	show_msg(9);
+	//msg = "錯誤：此 '" + name + "' 字不在資料庫中, 無法判斷";
+	//show_msg(9);
 	return 0;
 }
 
@@ -359,6 +433,15 @@ function get_name23()
 	}
 }
 
+// 呈現第一頁
+function show_page1()
+{
+  	show_msg(1);
+	$("#page1").show();
+	$("#input_name1").focus();
+	$("#input_name1").attr("placeholder","");
+}
+
 // 呈現第五頁
 function show_page5()
 {
@@ -368,9 +451,11 @@ function show_page5()
 	draw_page5();
 	show_msg(5);
 	
+	/*
 	// 解除滑鼠游標及臨時產生的連結
 	$("#message").css("cursor" , "default");
 	$("#message").unbind( "click" );
+	*/
 	$("#page5").show();
 	return false;
 }
@@ -546,12 +631,14 @@ function show_msg(msg)
 		$("#message").css("left", "605px");
 		$("#message").css("top", "195px");
 		$("#img_message").attr("src", "image/msg_isee.png");
+		/*
 		$("#message").css("cursor" , "pointer");
 		// 產生臨時的連結
 		$("#message").click(
 			function () {
 				show_page5();
 		});
+		*/
 		$("#message").show();
 	}
 	else if(msg == 5)
