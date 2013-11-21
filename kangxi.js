@@ -198,6 +198,7 @@ say80[81] = "奉天　承運皇帝　詔曰【最極之數，還本歸元，能�
 
 var name23 = [];		// 所以候選名字的陣列
 var sele_name = [];		// 入闈陣列, 和 name23 陣列同步, 裡面是 0 或 1 , 1 表示有選上
+var active_page = 1;
 
 $( document ).ready(function() {
 	$("#form1").submit(
@@ -215,7 +216,7 @@ $( document ).ready(function() {
 			{
 				show_msg(9);
 				$("#input_name1").val("");
-				$("#input_name1").attr("placeholder","此字不在資料庫中");
+				$("#input_name1").attr("placeholder","有字不在資料庫中");
 				$("#input_name1").focus();
 				return false;
 			}
@@ -224,19 +225,21 @@ $( document ).ready(function() {
 			$("#page2").show();
 			$("#input_number").focus();
 			$("#input_number").attr("placeholder","");
+			active_page = 2;
 			return false;
 	});
 	$("#form2").submit(
 		function() {
 			number = $("#input_number").val();
-			if($.isNumeric(number) == false)
+			if($.isNumeric(number) == false || Math.round(number) != number)
 			{
 				show_msg(9);
 				$("#input_number").val("");
-				$("#input_number").attr("placeholder","請輸入數字");
+				$("#input_number").attr("placeholder","請輸入整數數字");
 				$("#input_number").focus();
 				return false;
 			}
+			/* 因為字數可以不只一個, 所以數字就無法預先判斷範圍了
 			if(number <= num1 + 1)
 			{
 				show_msg(9);
@@ -253,6 +256,7 @@ $( document ).ready(function() {
 				$("#input_number").focus();
 				return false;
 			}
+			*/
 			/*
 			if(number > (num1 + num2 + 30) || number <= (num1 + num2))
 			{
@@ -266,6 +270,7 @@ $( document ).ready(function() {
 			show_msg(1);
 			$("#input_name2").attr("placeholder","");
 			$("#input_name2").focus();
+			active_page = 3;
 			return false;
 	});
 	$("#form3").submit(
@@ -284,31 +289,33 @@ $( document ).ready(function() {
 			{
 				show_msg(9);
 				$("#input_name2").val("");
-				$("#input_name2").attr("placeholder","此字不在資料庫中");
+				$("#input_name2").attr("placeholder","有字不在資料庫中");
 				$("#input_name2").focus();
 				return false;
 			}
-			
 			num3 = number - num1 - num2;
-			if(num3 < 1)
-			{
-				show_msg(9);
-				$("#input_name2").val("");
-				$("#input_name2").attr("placeholder","此字筆劃太多");
-				return false;
-			}
+			
+			while( num3 <= 0) num3 += 80;
+			num3 = num3 % 80;
+			while( number <= 0) number += 80;
+			number = number % 80;
+
 			if(num3 > 30)
 			{
 				show_msg(9);
 				$("#input_name2").val("");
-				$("#input_name2").attr("placeholder","此字筆劃太少");
+				$("#input_name2").attr("placeholder","找不到適合的字");
 				return false;
 			}
-			if (number > 80) number = number - 80;
+			
 			show_msg(2);
 			$("#page3").hide();
+			active_page = 4;
 			$("#message").delay(800).fadeOut(700, function () {
-				show_page5();
+				if (active_page == 4)
+					show_page5();	// 有可能在淡出時, 使用者選了別頁
+				else (active_page == 1)
+					show_msg(1);	// 若切回第 1 頁, 要還原訊息
 			});
 			return false;
 	});
@@ -335,6 +342,7 @@ $( document ).ready(function() {
 			show_msg(0);
 			$("#page5").hide();
 			$("#page6").show();
+			active_page = 6;
 			return false;
 	});
 	$("#menu_1").mouseenter(
@@ -386,6 +394,7 @@ $( document ).ready(function() {
 	  		$("#page8").hide();
 			show_msg(0);
 	  		$("#page7").show();
+	  		active_page = 7;
 	  		return false;
 	});
 	$("#menu_4").mouseenter(
@@ -408,18 +417,25 @@ $( document ).ready(function() {
 });
 
 // 由文字取得筆畫
-function get_name_num(name)
+// 名字可以超過一個字
+function get_name_num(myname)
 {
-	for(i=1; i<=30; i++)
+	names = myname.split("");	// 若有多字, 則拆成陣列
+	count = 0;
+	for(i=0; i<names.length; i++)
 	{
-		if(words[i].indexOf(name)>=0)
+		found = 0;
+		for(j=1; j<words.length; j++)
 		{
-			return i;
+			if(words[j].indexOf(names[i])>=0)
+			{
+				count += j;
+				found = 1;
+			}
 		}
+		if(found == 0) return 0;	// 一遇到找不到的字就傳回 0
 	}
-	//msg = "錯誤：此 '" + name + "' 字不在資料庫中, 無法判斷";
-	//show_msg(9);
-	return 0;
+	return count;
 }
 
 // 由筆畫取得名字
@@ -440,6 +456,7 @@ function show_page1()
 	$("#page1").show();
 	$("#input_name1").focus();
 	$("#input_name1").attr("placeholder","");
+	active_page = 1;
 }
 
 // 呈現第五頁
@@ -457,6 +474,7 @@ function show_page5()
 	$("#message").unbind( "click" );
 	*/
 	$("#page5").show();
+	active_page = 5;
 	return false;
 }
 
@@ -603,6 +621,7 @@ function show_page8(myid_num)
 	
 	$("#page7").hide();
 	$("#page8").show();
+	active_page = 8;
 
 	return false;		
 }
