@@ -295,10 +295,30 @@ $( document ).ready(function() {
 			}
 			num3 = number - num1 - num2;
 			
-			while( num3 <= 0) num3 += 80;
-			num3 = num3 % 80;
-			while( number <= 0) number += 80;
-			number = number % 80;
+			// 81 是特例, num3 一定要是 number - num1 - num2
+			if(number != 81)
+			{
+				while( num3 <= 0) num3 += 80;
+				num3 = num3 % 80;
+				if(num3 == 0) num3 = 80;
+			}
+			
+			if(number == 1)	// 若要總數為 1 , 則總數不能是 81 , 必須是 161
+			{
+				num3 = 161 - num1 - num2;
+				while( num3 <= 0) num3 += 80;
+				num3 = num3 % 80;
+				if(num3 == 0) num3 = 80;
+				if(num1 + num2 + num3 == 81) num3 += 80;
+			}
+			
+			// 81 是特例
+			if(number != 81)
+			{
+				while( number <= 0) number += 80;
+				number = number % 80;
+				if(number == 0) number = 80;
+			}
 
 			if(num3 > 30)
 			{
