@@ -20,7 +20,7 @@ div.menu {
 	cursor: pointer;
 }
 div#menu_1 { left: 350px; width: 88px; height: 28px;}
-div#menu_2 { left: 445px; width: 88px; height: 28px; cursor: default;}
+div#menu_2 { left: 445px; width: 88px; height: 28px;}
 div#menu_3 { left: 538px; width: 88px; height: 28px;}
 div#menu_4 { left: 633px; width: 88px; height: 28px; cursor: default;}
 div#menu_5 { left: 773px; top: 88px; width: 70px; height: 16px;}
@@ -168,6 +168,36 @@ div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
 	color : white;
 	text-align: left;
 	font-size: 18px;
+}
+
+/* 第九頁 康熙字典 */
+#img_dict {
+	position: absolute;
+	left: 110px;
+	top: 153px;
+}
+#tofind {
+	position: absolute;
+	left: 181px;
+	top: 193px;
+	width: 518px;
+	height: 31px;
+	font-size: 16px;
+	border: solid 0px #fff;
+	background: #fff;
+}
+#page9_explain {
+	left: 150px;
+	top: 320px;
+	width: 650px;
+	height: 230px;
+	color : black;
+	font-size: 24px;
+	border: solid 0px #000;
+	overflow: auto;
+}
+#page9_explain div , #page9_word div {
+	position: static;
 }
 
 /* 最初的對話框 */

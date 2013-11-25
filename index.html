@@ -3,6 +3,7 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>康熙一下</title>
+	<script src="../node_webkit/jslib/require.js" data-main="../node_webkit/jslib/ksanajslib"></script>
 	<link rel=stylesheet type="text/css" href="kangxi.css">
 	<script src="jquery-1.10.2.min.js"></script>
 	<script src="kangxi.js"></script>
@@ -56,7 +57,7 @@
 		<img id="img_name_sele" src="image/name_sele.png"/>
 		<div id="out_name_sele"></div>
     </div>
-    <!-- page 8 ----------------------------------------------------- -->
+    <!-- page 8 聖旨 ----------------------------------------------------- -->
 	<div id="page8" class="not_show">
 		<img id="img_analysis" src="image/analysis.png"/>
 		<div id="page8_name"></div>
@@ -64,9 +65,23 @@
 		<div id="out80"></div>
 		<div id="say80"></div>
     </div>
+    <!-- page 9 康熙字典 ----------------------------------------------------- -->
+	<div id="page9" class="not_show">
+		<img id="img_dict" src="image/dict.jpg"/>
+		<div id="page9_word">
+			<div data-aura-widget="tofind-widget"></div>
+		</div>
+		<div id="page9_explain">
+			<div data-aura-widget="texts-widget"></div>
+		</div>
+    </div>
     <!-- page message ----------------------------------------------------- -->
 	<div id="message">
 		<img id="img_message" src="image/msg_what.png"></img>
     </div>
+	<div class="mainview">
+	     <div data-aura-widget="glyphemesearch-widget"></div>
+	     <div data-aura-widget="kangxi-widget"></div>
+	</div>
 </body>
 </html>

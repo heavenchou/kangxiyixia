@@ -356,12 +356,7 @@ $( document ).ready(function() {
 	$("#menu_1").click(
 		function() {
 		  	// 上方鐵口直斷選單
-	  		$("#page2").hide();
-	  		$("#page3").hide();
-	  		$("#page5").hide();
-	  		$("#page6").hide();
-	  		$("#page7").hide();
-	  		$("#page8").hide();
+	  		hide_all();
 	  		show_page1();
   			return false;
 	});
@@ -372,6 +367,15 @@ $( document ).ready(function() {
 	$("#menu_2").mouseleave(
 		function() {
 			$("#menu_2").css("background-image" , "");
+	});
+	$("#menu_2").click(
+		function() {
+			// 康熙字典
+	  		hide_all();
+			show_msg(0);
+	  		$("#page9").show();
+	  		active_page = 9;
+	  		return false;
 	});
 	$("#menu_3").mouseenter(
 		function() {
@@ -386,12 +390,7 @@ $( document ).ready(function() {
 			// 上方入闈榜單選單
 			// 畫出 page 7 候選字介面
 			draw_page7();
-	  		$("#page1").hide();
-	  		$("#page2").hide();
-	  		$("#page3").hide();
-	  		$("#page5").hide();
-	  		$("#page6").hide();
-	  		$("#page8").hide();
+	  		hide_all();
 			show_msg(0);
 	  		$("#page7").show();
 	  		active_page = 7;
@@ -670,4 +669,16 @@ function show_msg(msg)
 		$("#img_message").attr("src", "image/msg_err.png");
 		$("#message").show();
 	}
+}
+// 頁面全部隱藏
+function hide_all()
+{
+	$("#page1").hide();
+	$("#page2").hide();
+	$("#page3").hide();
+	$("#page5").hide();
+	$("#page6").hide();
+	$("#page7").hide();
+	$("#page8").hide();
+	$("#page9").hide();
 }
