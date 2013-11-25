@@ -1,0 +1,19 @@
+{
+  "name": "kangxiyixia",
+  "description": "The Kangxi Yixia",
+  "version": "0.2",
+  "main": "index.html",
+  "single-instance":true,
+  "window": {
+    "toolbar": false,
+    "resizable":false,
+    "width": 960,
+    "height": 683
+  },
+ "repositories": [
+       {
+            "type": "git", 
+            "url": "https://github.com/heavenchou/kangxiyixia.git"
+       }  
+    ]
+}
