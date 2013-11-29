@@ -432,6 +432,7 @@ $( document ).ready(function() {
 		function() {
 			location.assign("about.htm");
 	});
+	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
 	$("#input_name1").focus();
 });
 
@@ -582,42 +583,39 @@ function draw_page7()
 	{
 		if(sele_name[i] == 1)
 		{
-			htm = htm + draw_one(i, 7);
+			htm = htm + draw_one_page7(i);
 		}
 	}
-	$("#out_name_sele").html(htm);
-	for(i=0; i<name23.length; i++)
-	{
-		if(sele_name[i] == 1)
-		{
-			myid = "#page7_name_" + i + " .select";
-			$(myid).attr("src" , "image/x.png");
-			$(myid).next().css("visibility", "visible");
-		}
-	}
+	newhtm = $("#out_name_sele").html() + htm;
+	$("#out_name_sele").html(newhtm);
+	localStorage.kangxiyixia_page7 = $("#out_name_sele").html();	// 儲存入闈名單
+	
+	// 清除陣列
+	name23 = [];		// 所以候選名字的陣列
+	sele_name = [];		// 入闈陣列, 和 name23 陣列同步, 裡面是 0 或 1 , 1 表示有選上
 	
 	// 設定姓名旁X按下去之後的程式
 	$("#page7 .select").click(
 		function() {
-			myid = $(this).parent().attr("id");		// id=page7_name_1
-			myid_num = parseInt(myid.slice(11) , 10);
-			$(this).parent().hide();
-			sele_name[myid_num] = 0;
+			$(this).parent().remove();
+			localStorage.kangxiyixia_page7 = $("#out_name_sele").html();	// 儲存入闈名單
 	});
+	
 	// 設定姓名(紅圈)按下去之後的程式
 	// 因為名字的 z-index=-1 , 無法按下, 所以把紅圈放大, 由按紅圈來處理
+
 	$("#page7 .showred").click(
 		function() {
-			myid = $(this).parent().attr("id");		// id=page7_name_1
-			myid_num = parseInt(myid.slice(11) , 10);
-			show_page8(myid_num);
+			myname23 = $(this).next().text();		// 取出名字
+			mystrokes = $(this).parent().attr("data-strokes");	// 取出總筆劃
+			show_page8(myname23 , mystrokes);
 	});
 }
 
 function draw_one (myid, page)
 {
 	/* 每一個人要呈現的樣子
-	<div id='page5_name_1' class='one_name>
+	<div id='page5_name_1' class='one_name'>
 		<img class='select' src='image/o.png'/>			<= float:right;
 		<img class='showred' src='image/redsele.png'/>	<= float:right;
 		<div>名字</div> 								<= z-index:-1;
@@ -625,18 +623,35 @@ function draw_one (myid, page)
 	*/
 	htm = "<div id='page" + page + "_name_" + myid + "' class='one_name'>\n";
 	htm = htm + "<img class='select' src='image/o.png'/>\n";
-	htm = htm + "<img class='showred' src='image/redsele.png'/>\n";
+	htm = htm + "<img class='showred' src='image/redsele.png'/>\n";	// 紅圈
 	htm = htm + "<div>" + name23[myid] + "</div>\n</div>\n";
 	return htm;
 }
 
-// 呈現 page8 聖旨
-function show_page8(myid_num)
+// page7 入闈名單的呈現與 page 5, 6 不同
+function draw_one_page7 (myid)
 {
-	$("#page8_name").html(name23[myid_num]);
-	$("#page8_good").html(out80[number][1]);
-	$("#out80").html(out80[number][0]);
-	$("#say80").html(say80[number]);
+	/* 每一個人要呈現的樣子
+	<div class='one_name' data-name1='姓' data-strokes='80'> 		80 是總筆劃
+		<img class='select' src='image/x.png'/>						<= float:right;
+		<img class='showred' src='image/redsele.png'/>				<= float:right;
+		<div class='name23'>名字</div> 								<= z-index:-1;
+	</div>
+	*/
+	htm = "<div class='one_name' data-name1='" + name1 + "' data-strokes='" + number + "'>\n";
+	htm = htm + "<img class='select' src='image/x.png'/>\n";	// page 7 入闈名單只用 X 的圖案
+	htm = htm + "<img class='showred' src='image/redsele.png'/>\n";	// 紅圈
+	htm = htm + "<div class='name23'>" + name23[myid] + "</div>\n</div>\n";
+	return htm;
+}
+
+// 呈現 page8 聖旨
+function show_page8(myname23 , mystrokes)
+{
+	$("#page8_name").html(myname23);
+	$("#page8_good").html(out80[mystrokes][1]);
+	$("#out80").html(out80[mystrokes][0]);
+	$("#say80").html(say80[mystrokes]);
 	
 	$("#page7").hide();
 	$("#page8").show();
@@ -702,3 +717,4 @@ function hide_all()
 	$("#page8").hide();
 	$("#page9").hide();
 }
+

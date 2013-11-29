@@ -124,6 +124,10 @@ div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
 #page7 .showred {
 	cursor: pointer;
 }
+/* page 7 入闈名單的紅圈一律都看的到 */
+#page7 .showred { 
+	visibility:visible;
+}
 
 /* 第八頁 聖旨 */
 #img_analysis {
