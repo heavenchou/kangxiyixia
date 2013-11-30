@@ -10,7 +10,7 @@ div {
 	margin: 0px;
 	padding: 0px;
 }
-div.not_show {display: none;}
+.mainpage {display: none;}
 
 /* 上方選單 */
 div.menu {
@@ -196,13 +196,25 @@ div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
 	width: 650px;
 	height: 230px;
 	color : black;
-	font-size: 24px;
+	font-size: 16px;
 	border: solid 0px #000;
 	overflow: auto;
 }
-#page9_explain div , #page9_word div {
+#page9_explain div {
 	position: static;
 }
+
+/* 第九頁 康熙字典 選單*/
+#page9 .dict_menu {
+	top: 240px;
+	height: 30px;
+	cursor: pointer;
+}
+
+#page9_menu_glypheme { left: 178px; width:116px; }
+#page9_menu_fulltext { left: 303px; width:78px; }
+#page9_menu_pb { left: 387px; width:78px; }
+#page9_menu_pron { left: 554px; width:78px; }
 
 /* 最初的對話框 */
 div#message {

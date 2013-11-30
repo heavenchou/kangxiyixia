@@ -376,7 +376,7 @@ $( document ).ready(function() {
 	$("#menu_1").click(
 		function() {
 		  	// 上方鐵口直斷選單
-	  		hide_all();
+	  		$(".mainpage").hide();
 	  		show_page1();
   			return false;
 	});
@@ -391,7 +391,7 @@ $( document ).ready(function() {
 	$("#menu_2").click(
 		function() {
 			// 康熙字典
-	  		hide_all();
+	  		$(".mainpage").hide();
 			show_msg(0);
 	  		$("#page9").show();
 	  		active_page = 9;
@@ -410,7 +410,7 @@ $( document ).ready(function() {
 			// 上方入闈榜單選單
 			// 畫出 page 7 候選字介面
 			draw_page7();
-	  		hide_all();
+	  		$(".mainpage").hide();
 			show_msg(0);
 	  		$("#page7").show();
 	  		active_page = 7;
@@ -432,7 +432,69 @@ $( document ).ready(function() {
 		function() {
 			location.assign("about.htm");
 	});
+	// 康熙字典切換解釋與部件
+	$("#page9_menu_glypheme").click(
+		function() {
+			if( $("#glypheme").css("display") == "none")
+			{
+				$("#page9_explain > div").hide();
+				$("#glypheme").show();
+			}
+			else
+			{
+				$("#page9_explain > div").hide();
+				$("#explain").show();
+			}
+			$("#page9_explain").scrollTop(0);
+	});
+	// 康熙字典-全文
+	$("#page9_menu_fulltext").click(
+		function() {
+			if( $("#fulltext").css("display") == "none")
+			{
+				$("#page9_explain > div").hide();
+				$("#fulltext").show();
+			}
+			else
+			{
+				$("#page9_explain > div").hide();
+				$("#explain").show();
+			}
+			$("#page9_explain").scrollTop(0);
+	});
+	// 康熙字典-頁碼
+	$("#page9_menu_pb").click(
+		function() {
+			if( $("#pb").css("display") == "none")
+			{
+				$("#page9_explain > div").hide();
+				$("#pb").show();
+			}
+			else
+			{
+				$("#page9_explain > div").hide();
+				$("#explain").show();
+			}
+			$("#page9_explain").scrollTop(0);
+	});
+	// 康熙字典-同音
+	$("#page9_menu_pron").click(
+		function() {
+			if( $("#pron").css("display") == "none")
+			{
+				$("#page9_explain > div").hide();
+				$("#pron").show();
+			}
+			else
+			{
+				$("#page9_explain > div").hide();
+				$("#explain").show();
+			}
+			$("#page9_explain").scrollTop(0);
+	});
 	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
+	
+	$("#page1").show();
 	$("#input_name1").focus();
 });
 
@@ -705,16 +767,3 @@ function show_msg(msg)
 		$("#message").show();
 	}
 }
-// 頁面全部隱藏
-function hide_all()
-{
-	$("#page1").hide();
-	$("#page2").hide();
-	$("#page3").hide();
-	$("#page5").hide();
-	$("#page6").hide();
-	$("#page7").hide();
-	$("#page8").hide();
-	$("#page9").hide();
-}
-

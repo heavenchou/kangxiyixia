@@ -4,6 +4,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>康熙一下</title>
 	<script src="../node_webkit/jslib/require.js" data-main="../node_webkit/jslib/ksanajslib"></script>
+    <link rel="stylesheet" href="../node_webkit/css/bootstrap.css"></link>
+    <link rel="stylesheet" href="css/tags.css"></link>
+    <link rel="stylesheet" href="css/ui.css"></link>
 	<link rel=stylesheet type="text/css" href="kangxi.css">
 	<script src="jquery-1.10.2.min.js"></script>
 	<script src="kangxi.js"></script>
@@ -17,7 +20,7 @@
     <div id="menu_5" class="menu"></div>
     <div id="menu_6" class="menu"></div>
     <!-- page 1 ----------------------------------------------------- -->
-	<div id="page1">
+	<div id="page1" class="mainpage">
 		<form id="form1" name="form1" method="post" action="">
 			<img id="img_ask_name1" src="image/ask_name1.png"/>
 		    <input type="text" name="input_name1" id="input_name1" autofocus>
@@ -25,7 +28,7 @@
 		</form>
     </div>
     <!-- page 2 ----------------------------------------------------- -->
-	<div id="page2" class="not_show">
+	<div id="page2" class="mainpage">
 		<form id="form2" name="form2" method="post" action="">
 			<img id="img_ask_number" src="image/ask_number.png"/>
 		    <input type="text" name="input_number" id="input_number" autofocus>
@@ -33,7 +36,7 @@
 		</form>
     </div>
     <!-- page 3 ----------------------------------------------------- -->
-	<div id="page3" class="not_show">
+	<div id="page3" class="mainpage">
 		<form id="form3" name="form3" method="post" action="">
 			<img id="img_ask_name2" src="image/ask_name2.png"/>
 		    <input type="text" name="input_name2" id="input_name2" autofocus>
@@ -42,37 +45,45 @@
     </div>
     <!-- page 4 ----------------------------------------------------- -->
     <!-- page 5 ----------------------------------------------------- -->
-	<div id="page5" class="not_show">
+	<div id="page5" class="mainpage">
 		<img id="img_name_prelist" src="image/name_prelist.png"/>
 		<div id="out_name_prelist"></div>
 	    <div id="page5_next"></div>
     </div>
     <!-- page 6 ----------------------------------------------------- -->
-	<div id="page6" class="not_show">
+	<div id="page6" class="mainpage">
 		<img id="img_name_all" src="image/name_all.png"/>
 		<div id="out_name_all"></div>
     </div>
     <!-- page 7 ----------------------------------------------------- -->
-	<div id="page7" class="not_show">
+	<div id="page7" class="mainpage">
 		<img id="img_name_sele" src="image/name_sele.png"/>
 		<div id="out_name_sele"></div>
     </div>
     <!-- page 8 聖旨 ----------------------------------------------------- -->
-	<div id="page8" class="not_show">
+	<div id="page8" class="mainpage">
 		<img id="img_analysis" src="image/analysis.png"/>
 		<div id="page8_name"></div>
 		<div id="page8_good"></div>
 		<div id="out80"></div>
 		<div id="say80"></div>
     </div>
-    <!-- page 9 康熙字典 ----------------------------------------------------- -->
-	<div id="page9" class="not_show">
+    <!-- page 9 字典 -------------------------------------------------- -->
+	<div id="page9" class="mainpage">
 		<img id="img_dict" src="image/dict.jpg"/>
-		<div id="page9_word">
-			<div data-aura-widget="tofind-widget"></div>
-		</div>
+		<div data-aura-widget="tofind-widget" id="page9_word"></div>
+		
+		<div id="page9_menu_glypheme" class="dict_menu"></div>
+		<div id="page9_menu_fulltext" class="dict_menu"></div>
+		<div id="page9_menu_pb" class="dict_menu"></div>
+		<div id="page9_menu_pron" class="dict_menu"></div>
+		
 		<div id="page9_explain">
-			<div data-aura-widget="texts-widget"></div>
+			<div data-aura-widget="texts-widget" id="explain"></div>
+			<div class="tab-pane" data-aura-widget="candidate-widget" id="glypheme" style="display: none;"></div>
+			<div class="tab-pane" data-aura-widget="searchresult-widget" id="fulltext" style="display: none;"></div>
+			<div class="tab-pane" data-aura-widget="pbsearchresult-widget" id="pb" style="display: none;"></div>
+			<div class="tab-pane" data-aura-widget="pysearchresult-widget" id="pron" style="display: none;"></div>
 		</div>
     </div>
     <!-- page message ----------------------------------------------------- -->
