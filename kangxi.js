@@ -334,7 +334,7 @@ $( document ).ready(function() {
 			$("#message").delay(800).fadeOut(700, function () {
 				if (active_page == 4)
 					show_page5();	// 有可能在淡出時, 使用者選了別頁
-				else (active_page == 1)
+				else if (active_page == 1)
 					show_msg(1);	// 若切回第 1 頁, 要還原訊息
 			});
 			return false;
@@ -367,7 +367,7 @@ $( document ).ready(function() {
 	});
 	$("#menu_1").mouseenter(
 		function() {
-			$("#menu_1").css("background-image" , "url(image/menu1.png)");
+			$("#menu_1").css("background-image" , "url(image/menu1.jpg)");
 	});
 	$("#menu_1").mouseleave(
 		function() {
@@ -375,14 +375,15 @@ $( document ).ready(function() {
 	});
 	$("#menu_1").click(
 		function() {
-		  	// 上方鐵口直斷選單
+			// 上方康熙字典選單
 	  		$(".mainpage").hide();
-	  		show_page1();
-  			return false;
+			show_msg(0);
+	  		$("#page9").show();
+	  		active_page = 9;
 	});
 	$("#menu_2").mouseenter(
 		function() {
-			$("#menu_2").css("background-image" , "url(image/menu2.png)");
+			$("#menu_2").css("background-image" , "url(image/menu2.jpg)");
 	});
 	$("#menu_2").mouseleave(
 		function() {
@@ -390,16 +391,13 @@ $( document ).ready(function() {
 	});
 	$("#menu_2").click(
 		function() {
-			// 康熙字典
+		  	// 上方鐵口直斷選單
 	  		$(".mainpage").hide();
-			show_msg(0);
-	  		$("#page9").show();
-	  		active_page = 9;
-	  		return false;
+	  		show_page1();
 	});
 	$("#menu_3").mouseenter(
 		function() {
-			$("#menu_3").css("background-image" , "url(image/menu3.png)");
+			$("#menu_3").css("background-image" , "url(image/menu3.jpg)");
 	});
 	$("#menu_3").mouseleave(
 		function() {
@@ -418,7 +416,7 @@ $( document ).ready(function() {
 	});
 	$("#menu_4").mouseenter(
 		function() {
-			$("#menu_4").css("background-image" , "url(image/menu4.png)");
+			$("#menu_4").css("background-image" , "url(image/menu4.jpg)");
 	});
 	$("#menu_4").mouseleave(
 		function() {
@@ -495,6 +493,7 @@ $( document ).ready(function() {
 	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
 	
 	$("#page1").show();
+	show_msg(1);
 	$("#input_name1").focus();
 });
 
@@ -550,11 +549,6 @@ function show_page5()
 	draw_page5();
 	show_msg(5);
 	
-	/*
-	// 解除滑鼠游標及臨時產生的連結
-	$("#message").css("cursor" , "default");
-	$("#message").unbind( "click" );
-	*/
 	$("#page5").show();
 	active_page = 5;
 	return false;
@@ -574,7 +568,7 @@ function draw_page5()
 	}
 	$("#out_name_prelist").html(htm);
 	
-	// 設定姓名旁O或X按下去之後的程式
+	// 設定姓名旁圈圈圖按下去之後的程式
 	$("#page5 .select").click(
 		function() {
 			myid = $(this).parent().attr("id");		// id=page5_name_1
@@ -583,13 +577,11 @@ function draw_page5()
 			
 			if(sele_name[myid_num] == 0)
 			{
-				// $(this).attr("src" , "image/o.png");
-				$(this).next().css("visibility", "hidden");
+				$(this).attr("src" , "image/black.png");
 			}
 			else
 			{
-				// $(this).attr("src" , "image/x.png");
-				$(this).next().css("visibility", "visible");
+				$(this).attr("src" , "image/red.png");
 			}
 	});
 }
@@ -611,27 +603,24 @@ function draw_page6()
 		if(sele_name[i] == 1)
 		{
 			myid = "#page6_name_" + i + " .select";
-			// $(myid).attr("src" , "image/x.png");
-			$(myid).next().css("visibility", "visible");
+			$(myid).attr("src" , "image/red.png");
 		}
 	}
 	
-	// 設定姓名旁O或X按下去之後的程式
+	// 設定姓名旁圈圈圖按下去之後的程式
 	$("#page6 .select").click(
 		function() {
-			myid = $(this).parent().attr("id");		// id=page5_name_1
+			myid = $(this).parent().attr("id");		// id=page6_name_1
 			myid_num = parseInt(myid.slice(11) , 10);
 			sele_name[myid_num] = 1 - sele_name[myid_num];	// 在 0 與 1 之間切換
 			
 			if(sele_name[myid_num] == 0)
 			{
-				// $(this).attr("src" , "image/o.png");
-				$(this).next().css("visibility", "hidden");
+				$(this).attr("src" , "image/black.png");
 			}
 			else
 			{
-				// $(this).attr("src" , "image/x.png");
-				$(this).next().css("visibility", "visible");
+				$(this).attr("src" , "image/red.png");
 			}
 	});
 }
@@ -656,7 +645,7 @@ function draw_page7()
 	name23 = [];		// 所以候選名字的陣列
 	sele_name = [];		// 入闈陣列, 和 name23 陣列同步, 裡面是 0 或 1 , 1 表示有選上
 	
-	// 設定姓名旁X按下去之後的程式
+	// 設定姓名旁圈圈圖按下去之後的程式
 	$("#page7 .select").click(
 		function() {
 			$(this).parent().remove();
@@ -666,9 +655,9 @@ function draw_page7()
 	// 設定姓名(紅圈)按下去之後的程式
 	// 因為名字的 z-index=-1 , 無法按下, 所以把紅圈放大, 由按紅圈來處理
 
-	$("#page7 .showred").click(
+	$("#page7 .name23").click(
 		function() {
-			myname23 = $(this).next().text();		// 取出名字
+			myname23 = $(this).text();		// 取出名字
 			mystrokes = $(this).parent().attr("data-strokes");	// 取出總筆劃
 			show_page8(myname23 , mystrokes);
 	});
@@ -678,15 +667,13 @@ function draw_one (myid, page)
 {
 	/* 每一個人要呈現的樣子
 	<div id='page5_name_1' class='one_name'>
-		<img class='select' src='image/o.png'/>			<= float:right;
-		<img class='showred' src='image/redsele.png'/>	<= float:right;
-		<div>名字</div> 								<= z-index:-1;
+		<span>名字</span>
+		<img class='select' src='image/black.png'/>
 	</div>
 	*/
 	htm = "<div id='page" + page + "_name_" + myid + "' class='one_name'>\n";
-	htm = htm + "<img class='select' src='image/o.png'/>\n";
-	htm = htm + "<img class='showred' src='image/redsele.png'/>\n";	// 紅圈
-	htm = htm + "<div>" + name23[myid] + "</div>\n</div>\n";
+	htm = htm + "<span>" + name23[myid] + "</span>\n";
+	htm = htm + "<img class='select' src='image/black.png'/>\n</div>\n";
 	return htm;
 }
 
@@ -695,15 +682,13 @@ function draw_one_page7 (myid)
 {
 	/* 每一個人要呈現的樣子
 	<div class='one_name' data-name1='姓' data-strokes='80'> 		80 是總筆劃
-		<img class='select' src='image/x.png'/>						<= float:right;
-		<img class='showred' src='image/redsele.png'/>				<= float:right;
-		<div class='name23'>名字</div> 								<= z-index:-1;
+		<span>名字</span>
+		<img class='select' src='image/black.png'/>
 	</div>
 	*/
 	htm = "<div class='one_name' data-name1='" + name1 + "' data-strokes='" + number + "'>\n";
-	htm = htm + "<img class='select' src='image/x.png'/>\n";	// page 7 入闈名單只用 X 的圖案
-	htm = htm + "<img class='showred' src='image/redsele.png'/>\n";	// 紅圈
-	htm = htm + "<div class='name23'>" + name23[myid] + "</div>\n</div>\n";
+	htm = htm + "<span class='name23'>" + name23[myid] + "</span>\n";
+	htm = htm + "<img class='select' src='image/red.png'/>\n</div>\n";
 	return htm;
 }
 
@@ -726,43 +711,36 @@ function show_page8(myname23 , mystrokes)
 // 0: 不呈現 1: 愛卿何事? 2:朕知道了 5:page5 的提示畫面
 function show_msg(msg)
 {
+	$("#message").hide();
 	if(msg == 0)
 	{
-		$("#message").hide();
+		return;
 	}
 	else if(msg == 1)
 	{
-		$("#message").css("left", "590px");
-		$("#message").css("top", "190px");
+		$("#message").css("left", "630px");
+		$("#message").css("top", "207px");
 		$("#img_message").attr("src", "image/msg_what.png");
 		$("#message").show();
 	}
 	else if(msg == 2)
 	{
-		$("#message").css("left", "605px");
-		$("#message").css("top", "195px");
+		$("#message").css("left", "635px");
+		$("#message").css("top", "220px");
 		$("#img_message").attr("src", "image/msg_isee.png");
-		/*
-		$("#message").css("cursor" , "pointer");
-		// 產生臨時的連結
-		$("#message").click(
-			function () {
-				show_page5();
-		});
-		*/
 		$("#message").show();
 	}
 	else if(msg == 5)
 	{
-		$("#message").css("left", "608px");
-		$("#message").css("top", "168px");
+		$("#message").css("left", "620px");
+		$("#message").css("top", "185px");
 		$("#img_message").attr("src", "image/msg_page5.png");
 		$("#message").show();
 	}
 	else
 	{
-		$("#message").css("left", "593px");
-		$("#message").css("top", "193px");
+		$("#message").css("left", "620px");
+		$("#message").css("top", "230px");
 		$("#img_message").attr("src", "image/msg_err.png");
 		$("#message").show();
 	}

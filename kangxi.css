@@ -15,31 +15,31 @@ div {
 /* 上方選單 */
 div.menu {
 	position: absolute;
-	top: 99px;
-	top: 96px;
+	top: 109px;
+	width: 127px;
+	height: 50px;
 	cursor: pointer;
 }
-div#menu_1 { left: 350px; width: 88px; height: 28px;}
-div#menu_2 { left: 445px; width: 88px; height: 28px;}
-div#menu_3 { left: 538px; width: 88px; height: 28px;}
-div#menu_4 { left: 633px; width: 88px; height: 28px; cursor: default;}
-div#menu_5 { left: 773px; top: 88px; width: 70px; height: 16px;}
-div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
+div#menu_1 { left: 370px; }
+div#menu_2 { left: 500px; }
+div#menu_3 { left: 628px; }
+div#menu_4 { left: 755px; cursor: default;}
+div#menu_5 { left: 713px; top: 80px; width: 77px; height: 24px;}
+div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 
 
 /* 前三頁 問問題 */
 #img_ask_name1 , #img_ask_number , #img_ask_name2 {
 	position: absolute;
-	left: 125px;
-	top: 220px;
-	box-shadow: 5px 5px 10px #333;
+	left: 130px;
+	top: 210px;
 }
 #input_name1 , #input_number , #input_name2 {
 	position: absolute;
-	left: 162px;
-	top: 262px;
-	width: 220px;
-	height: 32px;
+	left: 177px;
+	top: 297px;
+	width: 205px;
+	height: 30px;
 	background: #000;
 	border: solid 0px #000;
 	color : white;
@@ -47,32 +47,30 @@ div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
 	font-size: 18px;
 }
 #page1_next , #page2_next , #page3_next {
-	left: 160px;
-	top: 316px;
-	width: 227px;
-	height: 28px;
+	left: 177px;
+	top: 340px;
+	width: 205px;
+	height: 30px;
 	cursor: pointer;
+	border: solid 0px #fff;
 }
 
 /* 第五頁 列出基本候選字 */
 #img_name_prelist {
 	position: absolute;
-	left: 145px;
-	top: 190px;
-	box-shadow: 5px 5px 10px #333;
-	z-index: -10;
+	left: 125px;
+	top: 210px;
 }
 #out_name_prelist {
-	left: 236px;
-	top: 291px;
+	left: 238px;
+	top: 320px;
 	width: 100px;
 	height: 195px;
-	color : white;
 	text-align: center;
 }
 #page5_next {
-	left: 240px;
-	top: 492px;
+	left: 250px;
+	top: 512px;
 	width: 30px;
 	height: 20px;
 	cursor: pointer;
@@ -84,71 +82,58 @@ div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
 	display: inline-block;
 	margin: 3px;
 	width: 80px;
-	color : white;
+	color : black;
 }
-.one_name .select { 
-	float : right; 
-	margin-left: 6px; 
+.one_name .select {
+	vertical-align: top;
 	cursor: pointer;
 }
-.one_name .showred { 
-	float : right; 
-	padding-left: 35px; 
-	padding-top: 13px; 
-	visibility:hidden;
-}
-.one_name > div { 
-	z-index: -1; 
+.one_name span { 
 	font-size: 22px;
+	font-weight:bold;
 }
 
 /* 第六頁, 第七頁 */
 #img_name_all , #img_name_sele {
 	position: absolute;
-	left: 145px;
-	top: 190px;
-	box-shadow: 5px 5px 10px #333;
-	z-index: -10;
+	left: 150px;
+	top: 186px;
 }
 #out_name_all , #out_name_sele {
 	left: 260px;
-	top: 306px;
+	top: 340px;
 	width: 500px;
-	height: 200px;
-	color : white;
+	height: 188px;
 	text-align: left;
 	overflow: auto;
+	/* for IE */
 	scrollbar-base-color: #57311F;
 	scrollbar-track-color: #AA5222;
 }
-#page7 .showred {
+#page7 .name23 {
 	cursor: pointer;
 }
-/* page 7 入闈名單的紅圈一律都看的到 */
-#page7 .showred { 
-	visibility:visible;
-}
+
 
 /* 第八頁 聖旨 */
 #img_analysis {
 	position: absolute;
-	left: 120px;
-	top: 200px;
-	box-shadow: 5px 5px 10px #333;
+	left: 125px;
+	top: 205px;
 }
 #page8_name {
-	left: 165px;
-	top: 245px;
+	left: 190px;
+	top: 262px;
 	width: 80px;
 	height: 45px;
-	color : #C48617;
+	color : black;
 	text-align: center;
 	font-size: 36px;
 	font-weight:bold;
 }
 #page8_good {
-	left: 260px;
-	top: 250px;
+	left: 275px;
+	top: 272px;
 	width: 100px;
 	height: 25px;
 	color : white;
@@ -156,74 +141,80 @@ div#menu_6 { left: 773px; top: 115px; width: 70px; height: 16px;}
 	font-size: 24px;
 }
 #out80 {
-	left: 165px;
-	top: 300px;
-	width: 215px;
+	left: 190px;
+	top: 320px;
+	width: 200px;
 	height: 83px;
-	color : white;
+	color : black;
 	text-align: left;
-	font-size: 18px;
+	font-size: 16px;
+	font-weight:bold;
 }
 #say80 {
-	left: 165px;
-	top: 440px;
-	width: 210px;
+	left: 190px;
+	top: 470px;
+	width: 200px;
 	height: 85px;
-	color : white;
+	color : black;
 	text-align: left;
-	font-size: 18px;
+	font-size: 16px;
+	font-weight:bold;
 }
 
 /* 第九頁 康熙字典 */
 #img_dict {
 	position: absolute;
-	left: 110px;
-	top: 153px;
+	left: 128px;
+	top: 176px;
 }
 #tofind {
 	position: absolute;
-	left: 181px;
-	top: 193px;
-	width: 518px;
-	height: 31px;
+	left: 208px;
+	top: 219px;
+	width: 520px;
+	height: 35px;
 	font-size: 16px;
-	border: solid 0px #fff;
 	background: #fff;
 }
 #page9_explain {
-	left: 150px;
-	top: 320px;
+	left: 180px;
+	top: 350px;
 	width: 650px;
 	height: 230px;
-	color : black;
+	/* color : black; */
 	font-size: 16px;
-	border: solid 0px #000;
 	overflow: auto;
 }
 #page9_explain div {
 	position: static;
 }
 
+/* 取代原本字典中的屬性 */
+wh { color: #A2272A; border-width: 0px; } 		/* 主要文字變成暗紅色 */
+.panel {background-color : transparent; box-shadow: 0px 0px 0px #000;} /* 解釋背景透明 */
+.panel-default { border-width: 0px; } /* 解釋內容不要邊框 */
+.panel-default > .panel-heading {width: 615px; background-color: #ECAF78; } /* 解釋上方的說明背景色 */
+.list-group-item {background-color : transparent; border: 1px solid #D38420; } /* 尋找全文背景色及邊線 */
+a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指到的項目 */
+.btn-primary {background-color: #CB7B41; border-color: #AF6833; }	/* 部件及同音選取字 */
+.btn-primary:hover  {  background-color: #AF6833;  border-color: #8C512A;}	/* 部件及同音選取字滑鼠指到的字 */
+
+
 /* 第九頁 康熙字典 選單*/
 #page9 .dict_menu {
-	top: 240px;
-	height: 30px;
+	top: 269px;
+	height: 27px;
 	cursor: pointer;
 }
 
-#page9_menu_glypheme { left: 178px; width:116px; }
-#page9_menu_fulltext { left: 303px; width:78px; }
-#page9_menu_pb { left: 387px; width:78px; }
-#page9_menu_pron { left: 554px; width:78px; }
+#page9_menu_glypheme { left: 209px; width:116px; }
+#page9_menu_fulltext { left: 330px; width:79px; }
+#page9_menu_pb { left: 415px; width:78px; }
+#page9_menu_pron { left: 583px; width:78px; }
 
-/* 最初的對話框 */
-div#message {
-	top:190px;
-	left:590px;
-}
 
 /* chrome 捲軸 */
 ::-webkit-scrollbar { background-color:#AA5222; }
-::-webkit-scrollbar-button       { background-color:#492E21;}
+::-webkit-scrollbar-button       { background-color:#842F2C;}
 ::-webkit-scrollbar-track-piece  { background-color:#AA5222;}
-::-webkit-scrollbar-thumb { -webkit-border-radius: 8px; background-color: #57311F;}
+::-webkit-scrollbar-thumb { -webkit-border-radius: 8px; background-color: #842F2C;}

@@ -7,7 +7,7 @@ define(['underscore','backbone','text!./result.tmpl','text!./item.tmpl'],
     },
     resize:function() {
       var that=this;
-      this.$el.css("height", (window.innerHeight - this.$el.parent().offset().top) -10 +"px");
+      //this.$el.css("height", (window.innerHeight - this.$el.parent().offset().top) -10 +"px");
       this.$el.unbind('scroll');
       this.$el.bind("scroll", function() {
         if (that.$el.scrollTop()+ that.$el.innerHeight()+3> that.$el[0].scrollHeight) {

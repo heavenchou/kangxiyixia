@@ -7,7 +7,7 @@ define(['underscore','backbone','text!./result.tmpl','text!./item.tmpl','text!./
     },
     resize:function() {
       var that=this;
-      this.$el.css("height", (window.innerHeight - this.$el.offset().top -18) +"px");
+      // this.$el.css("height", (window.innerHeight - this.$el.offset().top -18) +"px");
     },
     whclick:function(e) {
       var btn=$(e.target);
