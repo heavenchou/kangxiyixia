@@ -278,20 +278,20 @@ $( document ).ready(function() {
 			name2 = $("#input_name2").val();
 			if(name2 == "")
 			{
-				show_msg(9);
-				$("#input_name2").val("");
-				$("#input_name2").attr("placeholder","請輸入字詞");
-				$("#input_name2").focus();
-				return false;
+				// 沒有第二個字也是可以的
+				num2 = 0;
 			}
-			num2 = get_name_num(name2);
-			if(num2 == 0)
+			else
 			{
-				show_msg(9);
-				$("#input_name2").val("");
-				$("#input_name2").attr("placeholder","有字不在資料庫中");
-				$("#input_name2").focus();
-				return false;
+				num2 = get_name_num(name2);
+				if(num2 == 0)
+				{
+					show_msg(9);
+					$("#input_name2").val("");
+					$("#input_name2").attr("placeholder","有字不在資料庫中");
+					$("#input_name2").focus();
+					return false;
+				}
 			}
 			num3 = number - num1 - num2;
 			
@@ -688,7 +688,7 @@ function draw_one_page7 (myid)
 	*/
 	htm = "<div class='one_name' data-name1='" + name1 + "' data-strokes='" + number + "'>\n";
 	htm = htm + "<span class='name23'>" + name23[myid] + "</span>\n";
-	htm = htm + "<img class='select' src='image/red.png'/>\n</div>\n";
+	htm = htm + "<img class='select' src='image/red.png' title='" + name1 + name23[myid] + "'/>\n</div>\n";
 	return htm;
 }
 
