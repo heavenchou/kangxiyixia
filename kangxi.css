@@ -2,6 +2,9 @@ body {
 	background-image: url(image/main_back.jpg);
 	background-repeat: no-repeat;
 	font-family: 微軟正黑體;
+	margin: 0px;
+	font-size: 14px;
+	line-height: 1.428571429;
 }
 
 /* 各頁面 */
@@ -55,6 +58,24 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	border: solid 0px #fff;
 }
 
+/* 每一個人名 */
+.one_name { 
+	position: static;
+	display: inline-block;
+	margin: 3px;
+	min-width: 80px;
+	color : black;
+	text-align: right;
+}
+.one_name .select {
+	vertical-align: top;
+	cursor: pointer;
+}
+.one_name span { 
+	font-size: 22px;
+	font-weight:bold;
+}
+
 /* 第五頁 列出基本候選字 */
 #img_name_prelist {
 	position: absolute;
@@ -62,9 +83,9 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	top: 210px;
 }
 #out_name_prelist {
-	left: 238px;
+	left: 205px;
 	top: 320px;
-	width: 100px;
+	width: 180px;
 	height: 195px;
 	text-align: center;
 }
@@ -75,22 +96,10 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	height: 20px;
 	cursor: pointer;
 }
-
-/* 每一個人名 */
-.one_name { 
-	position: static;
-	display: inline-block;
-	margin: 3px;
-	width: 80px;
-	color : black;
-}
-.one_name .select {
-	vertical-align: top;
-	cursor: pointer;
-}
-.one_name span { 
-	font-size: 22px;
-	font-weight:bold;
+#page5 .one_name {
+	display: block;
+	text-align: center;
+	margin: 5px;
 }
 
 /* 第六頁, 第七頁 */
