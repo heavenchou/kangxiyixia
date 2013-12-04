@@ -358,10 +358,9 @@ $( document ).ready(function() {
 		function() {
 			// 畫出 page 6 候選字介面
 			draw_page6();
-			
 			show_msg(0);
 			$("#page5").hide();
-			$("#page6").show();
+			show_animate($("#page6"));
 			active_page = 6;
 			return false;
 	});
@@ -410,7 +409,7 @@ $( document ).ready(function() {
 			draw_page7();
 	  		$(".mainpage").hide();
 			show_msg(0);
-	  		$("#page7").show();
+			show_animate($("#page7"));
 	  		active_page = 7;
 	  		return false;
 	});
@@ -744,4 +743,25 @@ function show_msg(msg)
 		$("#img_message").attr("src", "image/msg_err.png");
 		$("#message").show();
 	}
+}
+
+// 動畫展開捲軸
+function show_animate(obj)
+{
+	w = obj.width();
+	obj.width(60+53-16);	 // 60: 左邊寬度, 53: 右軸寬度 , 16: 右邊透明的部份
+	$("#img_stick").css("left", "210px");
+	obj.show();
+	$("#page10").show();
+	
+	obj.animate({
+			width: w-16
+		}, 1000 , function() {
+			obj.width(w);
+		}
+	);
+	$( "#img_stick" ).animate({
+			left: 210 + 640 - 53 // = 
+		}, 1000
+	);
 }
