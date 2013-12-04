@@ -686,10 +686,18 @@ function draw_page6()
 }
 
 // 畫出入闈字介面
+/*
+	每一組姓的安排如下:
+	<div data-name1="姓" class="name1_group"> // 同樣姓氏的群組
+		<div class="name1_head">姓氏</div>
+		<div class='one_name'...>一個人名</div><div class='one_name'...>XX</div><div class='one_name'...>XX</div>
+	</div>
+*/
 function draw_page7()
 {
-	htm = "";
-	count = 0;
+	var htm = "";
+	var count = 0;
+	// 先收集選取的人名
 	for(i=0; i<name23.length; i++)
 	{
 		if(sele_name[i] == 1)
@@ -697,9 +705,29 @@ function draw_page7()
 			htm = htm + draw_one_page7(i);
 		}
 	}
-	newhtm = $("#out_name_sele").html() + htm;
-	$("#out_name_sele").html(newhtm);
-	localStorage.kangxiyixia_page7 = $("#out_name_sele").html();	// 儲存入闈名單
+	
+	if(name23.length > 0)	// 有選擇資料則進行底下的
+	{
+		// 判斷有沒有同樣的姓氏群組, 若無, 就新建群組, 若有, 就加入該群組.
+		var mysele = "div.name1_group[data-name1=" + name1 + "]";
+		if($(mysele).size() == 0)
+		{
+			// 不存此群組, 建立新的
+			var tmphtm = "<div data-name1='" + name1 + "' class='name1_group'>\n";
+			tmphtm = tmphtm + "<div class='name1_head'>" + name1 + "姓：</div>\n";
+			
+			htm = tmphtm + htm + "</div>\n";
+			var newhtm = $("#out_name_sele").html() + htm;
+			$("#out_name_sele").html(newhtm);
+		}
+		else
+		{
+			// 存在此群組, 加入它
+			var newhtm = $(mysele).html() + htm;
+			$(mysele).html(newhtm);
+		}
+		localStorage.kangxiyixia_page7 = $("#out_name_sele").html();	// 儲存入闈名單
+	}
 	
 	// 清除陣列
 	name23 = [];		// 所以候選名字的陣列
@@ -708,12 +736,27 @@ function draw_page7()
 	// 設定姓名旁圈圈圖按下去之後的程式
 	$("#page7 .select").click(
 		function() {
+			var grand_parent = $(this).parent().parent();
 			$(this).parent().remove();
-			localStorage.kangxiyixia_page7 = $("#out_name_sele").html();	// 儲存入闈名單
+			if($(grand_parent).find(".one_name").size() == 0)
+			{
+				// 沒有子集合了, 所以刪除這個姓氏群組
+				$(grand_parent).animate({
+						height: 0,
+						opacity: 0
+					}, 500 , function() {
+						$(grand_parent).remove();
+						localStorage.kangxiyixia_page7 = $("#out_name_sele").html();	// 這一定要先寫
+					}
+				);
+			}
+			else
+			{
+				localStorage.kangxiyixia_page7 = $("#out_name_sele").html();	// 儲存入闈名單
+			}
 	});
 	
-	// 設定姓名(紅圈)按下去之後的程式
-	// 因為名字的 z-index=-1 , 無法按下, 所以把紅圈放大, 由按紅圈來處理
+	// 設定姓名按下去之後的程式
 
 	$("#page7 .name23").click(
 		function() {
@@ -746,7 +789,7 @@ function draw_one_page7 (myid)
 		<img class='select' src='image/black.png'/>
 	</div>
 	*/
-	htm = "<div class='one_name' data-name1='" + name1 + "' data-strokes='" + number + "'>\n";
+	var htm = "<div class='one_name' data-name1='" + name1 + "' data-strokes='" + number + "'>\n";
 	htm = htm + "<span class='name23'>" + name23[myid] + "</span>\n";
 	htm = htm + "<img class='select' src='image/red.png'/>\n</div>\n";
 	return htm;
@@ -760,7 +803,7 @@ function show_page8(myname23 , mystrokes)
 	$("#out80").html(out80[mystrokes][0]);
 	$("#say80").html(say80[mystrokes]);
 	
-	$("#page7").hide();
+	$(".mainpage").hide();
 	$("#page8").show();
 	active_page = 8;
 
