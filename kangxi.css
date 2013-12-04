@@ -227,14 +227,15 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 /* 第九頁 康熙字典 選單*/
 #page9 .dict_menu {
 	top: 269px;
-	height: 27px;
-	cursor: pointer;
+	height: 31px;
 }
 
-#page9_menu_glypheme { left: 209px; width:116px; }
-#page9_menu_fulltext { left: 330px; width:79px; }
-#page9_menu_pb { left: 415px; width:78px; }
-#page9_menu_pron { left: 583px; width:78px; }
+#page9_menu_glypheme { left: 207px; width:83px; background-image: url(image/wordbookBtn1.png); cursor: pointer;}
+#page9_menu_fulltext { left: 300px; width:83px; background-image: url(image/wordbookBtn2.png); cursor: pointer;}
+#page9_menu_pb { left: 393px; width:83px; background-image: url(image/wordbookBtn3.png); cursor: pointer;}
+#page9_menu_strokes { left: 486px; width:83px; background-image: url(image/wordbookBtn4.png);}
+#page9_menu_pron { left: 579px; width:83px; background-image: url(image/wordbookBtn5.png); cursor: pointer;}
+#page9_menu_dict { left: 672px; width:120px; background-image: url(image/wordbookBtn6.png); cursor: pointer;}
 
 
 /* chrome 捲軸 */

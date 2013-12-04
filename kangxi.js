@@ -430,6 +430,14 @@ $( document ).ready(function() {
 			location.assign("about.htm");
 	});
 	// 康熙字典切換解釋與部件
+	$("#page9_menu_glypheme").mouseenter(
+		function() {
+			$("#page9_menu_glypheme").css("background-image" , "url(image/wordbookBtn1-2.png)");
+	});
+	$("#page9_menu_glypheme").mouseleave(
+		function() {
+			$("#page9_menu_glypheme").css("background-image" , "url(image/wordbookBtn1.png)");
+	});
 	$("#page9_menu_glypheme").click(
 		function() {
 			if( $("#glypheme").css("display") == "none")
@@ -445,6 +453,14 @@ $( document ).ready(function() {
 			$("#page9_explain").scrollTop(0);
 	});
 	// 康熙字典-全文
+	$("#page9_menu_fulltext").mouseenter(
+		function() {
+			$("#page9_menu_fulltext").css("background-image" , "url(image/wordbookBtn2-2.png)");
+	});
+	$("#page9_menu_fulltext").mouseleave(
+		function() {
+			$("#page9_menu_fulltext").css("background-image" , "url(image/wordbookBtn2.png)");
+	});
 	$("#page9_menu_fulltext").click(
 		function() {
 			if( $("#fulltext").css("display") == "none")
@@ -460,6 +476,14 @@ $( document ).ready(function() {
 			$("#page9_explain").scrollTop(0);
 	});
 	// 康熙字典-頁碼
+	$("#page9_menu_pb").mouseenter(
+		function() {
+			$("#page9_menu_pb").css("background-image" , "url(image/wordbookBtn3-2.png)");
+	});
+	$("#page9_menu_pb").mouseleave(
+		function() {
+			$("#page9_menu_pb").css("background-image" , "url(image/wordbookBtn3.png)");
+	});
 	$("#page9_menu_pb").click(
 		function() {
 			if( $("#pb").css("display") == "none")
@@ -474,7 +498,24 @@ $( document ).ready(function() {
 			}
 			$("#page9_explain").scrollTop(0);
 	});
+	// 康熙字典-筆劃
+	$("#page9_menu_strokes").mouseenter(
+		function() {
+			$("#page9_menu_strokes").css("background-image" , "url(image/wordbookBtn4-2.png)");
+	});
+	$("#page9_menu_strokes").mouseleave(
+		function() {
+			$("#page9_menu_strokes").css("background-image" , "url(image/wordbookBtn4.png)");
+	});
 	// 康熙字典-同音
+	$("#page9_menu_pron").mouseenter(
+		function() {
+			$("#page9_menu_pron").css("background-image" , "url(image/wordbookBtn5-2.png)");
+	});
+	$("#page9_menu_pron").mouseleave(
+		function() {
+			$("#page9_menu_pron").css("background-image" , "url(image/wordbookBtn5.png)");
+	});
 	$("#page9_menu_pron").click(
 		function() {
 			if( $("#pron").css("display") == "none")
@@ -488,6 +529,26 @@ $( document ).ready(function() {
 				$("#explain").show();
 			}
 			$("#page9_explain").scrollTop(0);
+	});
+	// 康熙字典-國語辭典
+	$("#page9_menu_dict").mouseenter(
+		function() {
+			$("#page9_menu_dict").css("background-image" , "url(image/wordbookBtn6-2.png)");
+	});
+	$("#page9_menu_dict").mouseleave(
+		function() {
+			$("#page9_menu_dict").css("background-image" , "url(image/wordbookBtn6.png)");
+	});
+	$("#page9_menu_dict").click(
+		function() {
+			if(navigator.onLine)
+			{
+				location.assign("http://dict.revised.moe.edu.tw/");
+			}
+			else
+			{
+				alert("沒有連接網路哦");
+			}
 	});
 	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
 	
@@ -687,7 +748,7 @@ function draw_one_page7 (myid)
 	*/
 	htm = "<div class='one_name' data-name1='" + name1 + "' data-strokes='" + number + "'>\n";
 	htm = htm + "<span class='name23'>" + name23[myid] + "</span>\n";
-	htm = htm + "<img class='select' src='image/red.png' title='" + name1 + name23[myid] + "'/>\n</div>\n";
+	htm = htm + "<img class='select' src='image/red.png'/>\n</div>\n";
 	return htm;
 }
 
