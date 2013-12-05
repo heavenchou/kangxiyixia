@@ -223,12 +223,41 @@ $( document ).ready(function() {
 			show_msg(1);
 			$("#page1").hide();
 			$("#page2").show();
-			$("#input_number").focus();
-			$("#input_number").attr("placeholder","");
+			$("#input_name2").focus();
+			$("#input_name2").attr("placeholder","取單名想請按下一步");
 			active_page = 2;
 			return false;
 	});
 	$("#form2").submit(
+		function() {
+			name2 = $("#input_name2").val();
+			if(name2 == "")
+			{
+				// 沒有第二個字也是可以的
+				num2 = 0;
+			}
+			else
+			{
+				num2 = get_name_num(name2);
+				if(num2 == 0)
+				{
+					show_msg(9);
+					$("#input_name2").val("");
+					$("#input_name2").attr("placeholder","有字不在資料庫中");
+					$("#input_name2").focus();
+					return false;
+				}
+			}
+			
+			$("#page2").hide();
+			$("#page3").show();
+			show_msg(1);
+			$("#input_number").attr("placeholder","");
+			$("#input_number").focus();
+			active_page = 3;
+			return false;
+	});
+	$("#form3").submit(
 		function() {
 			number = $("#input_number").val();
 			if($.isNumeric(number) == false || Math.round(number) != number)
@@ -239,6 +268,7 @@ $( document ).ready(function() {
 				$("#input_number").focus();
 				return false;
 			}
+			
 			/* 因為字數可以不只一個, 所以數字就無法預先判斷範圍了
 			if(number <= num1 + 1)
 			{
@@ -265,34 +295,7 @@ $( document ).ready(function() {
 				return false;
 			}
 			*/
-			$("#page2").hide();
-			$("#page3").show();
-			show_msg(1);
-			$("#input_name2").attr("placeholder","");
-			$("#input_name2").focus();
-			active_page = 3;
-			return false;
-	});
-	$("#form3").submit(
-		function() {
-			name2 = $("#input_name2").val();
-			if(name2 == "")
-			{
-				// 沒有第二個字也是可以的
-				num2 = 0;
-			}
-			else
-			{
-				num2 = get_name_num(name2);
-				if(num2 == 0)
-				{
-					show_msg(9);
-					$("#input_name2").val("");
-					$("#input_name2").attr("placeholder","有字不在資料庫中");
-					$("#input_name2").focus();
-					return false;
-				}
-			}
+			
 			num3 = number - num1 - num2;
 			
 			// 81 是特例, num3 一定要是 number - num1 - num2
@@ -323,8 +326,8 @@ $( document ).ready(function() {
 			if(num3 > 30)
 			{
 				show_msg(9);
-				$("#input_name2").val("");
-				$("#input_name2").attr("placeholder","找不到適合的字");
+				$("#input_number").val("");
+				$("#input_number").attr("placeholder","此數字找不到適合的字");
 				return false;
 			}
 			
@@ -391,6 +394,9 @@ $( document ).ready(function() {
 	$("#menu_2").click(
 		function() {
 		  	// 上方鐵口直斷選單
+		  	$("#message").stop();				// 若是正在秀 "朕知道了" , 要中斷該動畫狀態
+		  	$("#message").css("opacity", 1);	
+		  	
 	  		$(".mainpage").hide();
 	  		show_page1();
 	});
@@ -409,6 +415,8 @@ $( document ).ready(function() {
 			draw_page7();
 	  		$(".mainpage").hide();
 			show_msg(0);
+			$("#page7").stop(false,true);	// 避免此按鈕重覆一直按會造成錯誤
+			$("#img_stick").stop(false,true);
 			show_animate($("#page7"));
 	  		active_page = 7;
 	  		return false;
