@@ -220,6 +220,12 @@ $( document ).ready(function() {
 				$("#input_name1").focus();
 				return false;
 			}
+			if(name1 == "我愛康熙一下")
+			{
+				// 秀出團隊名單
+				show_page10();
+				return false;
+			}
 			show_msg(1);
 			$("#page1").hide();
 			$("#page2").show();
@@ -235,6 +241,12 @@ $( document ).ready(function() {
 			{
 				// 沒有第二個字也是可以的
 				num2 = 0;
+			}
+			else if(name2 == "我愛康熙一下")
+			{
+				// 秀出團隊名單
+				show_page10();
+				return false;
 			}
 			else
 			{
@@ -815,7 +827,17 @@ function show_page8(myname23 , mystrokes)
 	$(".mainpage").hide();
 	stick_v_animate($("#page8"));
 	active_page = 8;
+	return false;		
+}
 
+// 呈現 page8 團隊名單
+function show_page10()
+{
+	$(".mainpage").hide();
+	show_msg(0);
+	stick_h_animate($("#page10"));
+	$("#member_list").scrollTop(0);
+	active_page = 10;
 	return false;		
 }
 
