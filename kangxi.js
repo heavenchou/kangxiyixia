@@ -363,7 +363,8 @@ $( document ).ready(function() {
 			draw_page6();
 			show_msg(0);
 			$("#page5").hide();
-			show_animate($("#page6"));
+			$("#page12").hide();
+			stick_h_animate($("#page6"));
 			active_page = 6;
 			return false;
 	});
@@ -416,8 +417,8 @@ $( document ).ready(function() {
 	  		$(".mainpage").hide();
 			show_msg(0);
 			$("#page7").stop(false,true);	// 避免此按鈕重覆一直按會造成錯誤
-			$("#img_stick").stop(false,true);
-			show_animate($("#page7"));
+			$("#img_stick_h").stop(false,true);
+			stick_h_animate($("#page7"));
 	  		active_page = 7;
 	  		return false;
 	});
@@ -616,8 +617,7 @@ function show_page5()
 	// 畫出 page 5 候選字介面
 	draw_page5();
 	show_msg(5);
-	
-	$("#page5").show();
+	stick_v_animate($("#page5"));
 	active_page = 5;
 	return false;
 }
@@ -740,8 +740,9 @@ function draw_page7()
 	// 清除陣列
 	name23 = [];		// 所以候選名字的陣列
 	sele_name = [];		// 入闈陣列, 和 name23 陣列同步, 裡面是 0 或 1 , 1 表示有選上
-	
+
 	// 設定姓名旁圈圈圖按下去之後的程式
+	$("#page7 .select").unbind( "click" );
 	$("#page7 .select").click(
 		function() {
 			var grand_parent = $(this).parent().parent();
@@ -765,7 +766,7 @@ function draw_page7()
 	});
 	
 	// 設定姓名按下去之後的程式
-
+	$("#page7 .name23").unbind( "click" );
 	$("#page7 .name23").click(
 		function() {
 			myname23 = $(this).text();		// 取出名字
@@ -812,7 +813,7 @@ function show_page8(myname23 , mystrokes)
 	$("#say80").html(say80[mystrokes]);
 	
 	$(".mainpage").hide();
-	$("#page8").show();
+	stick_v_animate($("#page8"));
 	active_page = 8;
 
 	return false;		
@@ -857,14 +858,14 @@ function show_msg(msg)
 	}
 }
 
-// 動畫展開捲軸
-function show_animate(obj)
+// 橫向捲軸水平動畫展開
+function stick_h_animate(obj)
 {
-	w = obj.width();
+	var w = obj.width();
 	obj.width(60+53-16);	 // 60: 左邊寬度, 53: 右軸寬度 , 16: 右邊透明的部份
-	$("#img_stick").css("left", "210px");
+	$("#img_stick_h").css("left", "210px");  // 150 (原始 left) + 60
 	obj.show();
-	$("#page10").show();
+	$("#page11").show();
 	
 	obj.animate({
 			width: w-16
@@ -872,8 +873,29 @@ function show_animate(obj)
 			obj.width(w);
 		}
 	);
-	$( "#img_stick" ).animate({
-			left: 210 + 640 - 53 // = 
+	$( "#img_stick_h" ).animate({
+			left: 210 + 640 - 53	// 總長 700 - 60 = 640
+		}, 1000
+	);
+}
+
+// 直向捲軸垂直動畫展開
+function stick_v_animate(obj)
+{
+	var h = obj.height();
+	obj.height(42+45-17);	 // 42: 上方高度, 45: 下軸高度 , 17: 下方透明的部份
+	$("#img_stick_v").css("top", "246px");  // 204 (原始 top) + 42
+	obj.show();
+	$("#page12").show();
+	
+	obj.animate({
+			height: h-17
+		}, 1000 , function() {
+			obj.height(h);
+		}
+	);
+	$( "#img_stick_v" ).animate({
+			top: 246 + 354 - 45	// 總高 396 - 42 = 354
 		}, 1000
 	);
 }

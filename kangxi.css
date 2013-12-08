@@ -77,21 +77,26 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 }
 
 /* 第五頁 列出基本候選字 */
-#img_name_prelist {
+#page5, #page8 {
 	position: absolute;
 	left: 125px;
-	top: 210px;
+	top: 204px;
+	width: 333px;
+	height: 396px;
 }
+#page5 { background-image: url(image/name_prelist.png); }
+
 #out_name_prelist {
-	left: 205px;
-	top: 320px;
+	position: relative;
+	left: 80px;
+	top: 116px;
 	width: 180px;
 	height: 195px;
 	text-align: center;
 }
 #page5_next {
-	left: 250px;
-	top: 512px;
+	left: 125px;
+	top: 308px;
 	width: 30px;
 	height: 20px;
 	cursor: pointer;
@@ -100,6 +105,13 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	display: block;
 	text-align: center;
 	margin: 5px;
+}
+#img_stick_v {
+	position: absolute;
+	left: 125px;
+	top: 246px;
+	width: 333px;
+	height: 45px;
 }
 
 /* 第六頁, 第七頁 */
@@ -128,11 +140,11 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 #page7 .name23 {
 	cursor: pointer;
 }
-#img_stick {
+#img_stick_h {
 	position: absolute;
 	left: 210px;
 	top: 186px;
-	width: 54px;
+	width: 53px;
 	height: 430px;
 }
 .name1_group , .name1_head {
@@ -148,16 +160,11 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	padding-left: 10px;
 }
 
-
 /* 第八頁 聖旨 */
-#img_analysis {
-	position: absolute;
-	left: 125px;
-	top: 205px;
-}
+#page8 { background-image: url(image/analysis.png); }
 #page8_name {
-	left: 190px;
-	top: 262px;
+	left: 65px;
+	top: 57px;
 	width: 80px;
 	height: 45px;
 	color : black;
@@ -166,8 +173,8 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	font-weight:bold;
 }
 #page8_good {
-	left: 275px;
-	top: 272px;
+	left: 150px;
+	top: 67px;
 	width: 100px;
 	height: 25px;
 	color : white;
@@ -175,8 +182,8 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	font-size: 24px;
 }
 #out80 {
-	left: 190px;
-	top: 320px;
+	left: 65px;
+	top: 115px;
 	width: 200px;
 	height: 83px;
 	color : black;
@@ -185,8 +192,8 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	font-weight:bold;
 }
 #say80 {
-	left: 190px;
-	top: 470px;
+	left: 65px;
+	top: 265px;
 	width: 200px;
 	height: 85px;
 	color : black;
