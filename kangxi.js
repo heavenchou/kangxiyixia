@@ -201,6 +201,16 @@ var sele_name = [];		// 入闈陣列, 和 name23 陣列同步, 裡面是 0 或 1
 var active_page = 1;
 
 $( document ).ready(function() {
+	$("#page0_next").click(
+		function() {
+			clearTimeout(waittime);
+			$("body").css("background-image", "url(image/main_back.jpg)");
+			$("#page0").hide();
+			$("#page1").show();
+			show_msg(1);
+			$("#input_name1").focus();
+			active_page = 1;
+	});
 	$("#form1").submit(
 		function() {
 			name1 = $("#input_name1").val();
@@ -394,6 +404,7 @@ $( document ).ready(function() {
 	  		$(".mainpage").hide();
 			show_msg(0);
 	  		$("#page9").show();
+	  		$("#tofind").focus();
 	  		active_page = 9;
 	});
 	$("#menu_2").mouseenter(
@@ -572,10 +583,10 @@ $( document ).ready(function() {
 			}
 	});
 	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
-	
-	$("#page1").show();
-	show_msg(1);
-	$("#input_name1").focus();
+	// 起始動畫
+	var stage = new swiffy.Stage(document.getElementById('swiffycontainer'), swiffyobject);
+	stage.start();
+	var waittime = setTimeout('$("#page0_next").click()',15000);
 });
 
 // 由文字取得筆畫

@@ -1,10 +1,10 @@
 body {
-	background-image: url(image/main_back.jpg);
 	background-repeat: no-repeat;
 	font-family: 微軟正黑體;
 	margin: 0px;
 	font-size: 14px;
 	line-height: 1.428571429;
+	overflow: auto;
 }
 
 /* 各頁面 */
@@ -30,6 +30,21 @@ div#menu_4 { left: 755px; cursor: default;}
 div#menu_5 { left: 713px; top: 80px; width: 77px; height: 24px;}
 div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 
+/* 首頁動畫 */
+#swiffycontainer {
+	left: 0px;
+	top: 0px;
+	width: 1000px;
+	height: 720px;
+}
+#page0_next {
+	left: 830px;
+	top: 660px;
+	width: 105px;
+	height: 45px;
+	cursor: pointer;
+	border: solid 0px #666;
+}
 
 /* 前三頁 問問題 */
 #img_ask_name1 , #img_ask_number , #img_ask_name2 {
@@ -260,6 +275,8 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 #page9_menu_pron { left: 579px; width:83px; background-image: url(image/wordbookBtn5.png); cursor: pointer;}
 #page9_menu_dict { left: 672px; width:120px; background-image: url(image/wordbookBtn6.png); cursor: pointer;}
 
+/* 訊息 */
+#message {display: none;}
 
 /* chrome 捲軸 */
 ::-webkit-scrollbar { background-color:#AA5222; }

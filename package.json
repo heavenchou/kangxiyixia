@@ -8,7 +8,10 @@
     "toolbar": true,
     "resizable": false,
     "width": 1000,
-    "height": 720
+    "height": 760
+  },
+  "webkit": {
+    "plugin": true
   },
  "repositories": [
        {
