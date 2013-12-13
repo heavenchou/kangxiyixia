@@ -1,5 +1,5 @@
 define(['underscore'], 
-  function(_,template) {
+  function(_) {
   return {
     //dbname : 'kangxizidian',
     type: 'Backbone',
@@ -11,7 +11,9 @@ define(['underscore'],
       var opts={db:this.db,tag:"wh",tofind:wh,grouped:true};
       yase.phraseSearch(opts,function(err,res){
         var first=parseInt(Object.keys(res[0])[0],10);
-        if (isNaN(first)) return null;
+        if (isNaN(first)) {          
+          return null;
+        }
         yase.closestTag( {db:that.db, tag:["wh","pb"], slot:first} 
           ,function(err,data){
             opts.ntag=data[0][0].ntag;
