@@ -224,6 +224,7 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	text-align: left;
 	font-size: 16px;
 	font-weight:bold;
+	overflow: auto;
 }
 
 /* 第九頁 康熙字典 */
@@ -272,11 +273,11 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 }
 
 #page9_menu_glypheme { left: 207px; width:83px; background-image: url(image/wordbookBtn1.png); cursor: pointer;}
-#page9_menu_fulltext { left: 300px; width:83px; background-image: url(image/wordbookBtn2.png); cursor: pointer;}
-#page9_menu_pb { left: 393px; width:83px; background-image: url(image/wordbookBtn3.png); cursor: pointer;}
-#page9_menu_strokes { left: 486px; width:83px; background-image: url(image/wordbookBtn4.png);}
-#page9_menu_pron { left: 579px; width:83px; background-image: url(image/wordbookBtn5.png); cursor: pointer;}
-#page9_menu_dict { left: 672px; width:120px; background-image: url(image/wordbookBtn6.png); cursor: pointer;}
+#page9_menu_fulltext { left: 307px; width:83px; background-image: url(image/wordbookBtn2.png); cursor: pointer;}
+#page9_menu_pb { left: 407px; width:83px; background-image: url(image/wordbookBtn3.png); cursor: pointer;}
+/* #page9_menu_strokes { left: 486px; width:83px; background-image: url(image/wordbookBtn4.png);} */
+#page9_menu_pron { left: 507px; width:83px; background-image: url(image/wordbookBtn5.png); cursor: pointer;}
+#page9_menu_dict { left: 608px; width:120px; background-image: url(image/wordbookBtn6.png); cursor: pointer;}
 
 /* 訊息 */
 #message {display: none;}
