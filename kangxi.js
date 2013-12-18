@@ -588,7 +588,7 @@ $( document ).ready(function() {
 	// 起始動畫
 	var stage = new swiffy.Stage(document.getElementById('swiffycontainer'), swiffyobject);
 	stage.start();
-	var waittime = setTimeout('$("#page0_next").click()',15000);
+	var waittime = setTimeout('$("#page0_next").click()',20000);
 });
 
 // 由文字取得筆畫
