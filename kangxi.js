@@ -402,7 +402,9 @@ $( document ).ready(function() {
 		function() {
 			// 上方康熙字典選單
 	  		$(".mainpage").hide();
-			show_msg(0);
+			show_msg(0);	
+			var myVideo = document.getElementById("page13_video");
+			myVideo.pause();
 	  		$("#page9").show();
 	  		$("#tofind").focus();
 	  		active_page = 9;
@@ -422,6 +424,8 @@ $( document ).ready(function() {
 		  	$("#message").css("opacity", 1);	
 		  	
 	  		$(".mainpage").hide();
+			var myVideo = document.getElementById("page13_video");
+			myVideo.pause();
 	  		show_page1();
 	});
 	$("#menu_3").mouseenter(
@@ -439,12 +443,15 @@ $( document ).ready(function() {
 			draw_page7();
 	  		$(".mainpage").hide();
 			show_msg(0);
+			var myVideo = document.getElementById("page13_video");
+			myVideo.pause();
 			$("#page7").stop(false,true);	// 避免此按鈕重覆一直按會造成錯誤
 			$("#img_stick_h").stop(false,true);
 			stick_h_animate($("#page7"));
 	  		active_page = 7;
 	  		return false;
 	});
+	// 數位 E 筆
 	$("#menu_4").mouseenter(
 		function() {
 			$("#menu_4").css("background-image" , "url(image/menu4.jpg)");
@@ -452,6 +459,10 @@ $( document ).ready(function() {
 	$("#menu_4").mouseleave(
 		function() {
 			$("#menu_4").css("background-image" , "");
+	});
+	$("#menu_4").click(
+		function() {
+			show_page13();
 	});
 	$("#menu_5").click(
 		function() {
@@ -843,7 +854,7 @@ function show_page8(myname23 , mystrokes)
 	return false;		
 }
 
-// 呈現 page8 團隊名單
+// 呈現 page10 團隊名單
 function show_page10()
 {
 	$(".mainpage").hide();
@@ -852,6 +863,20 @@ function show_page10()
 	$("#member_list").scrollTop(0);
 	active_page = 10;
 	return false;		
+}
+
+// 呈現 page13 數位 E 筆
+function show_page13()
+{
+	$(".mainpage").hide();
+	show_msg(0);
+	// $("#page13").show();
+	var myVideo = document.getElementById("page13_video");
+	myVideo.pause();
+	myVideo.currentTime = 1;
+	$("#page13").slideDown( "slow" );
+	active_page = 13;
+	return false;
 }
 
 // 秀出訊息
