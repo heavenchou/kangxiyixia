@@ -211,15 +211,15 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 	width: 200px;
 	height: 83px;
 	color : black;
-	text-align: left;
+	text-align: center;
 	font-size: 16px;
 	font-weight:bold;
 }
 #say80 {
 	left: 65px;
-	top: 265px;
+	top: 230px;
 	width: 200px;
-	height: 85px;
+	height: 115px;
 	color : black;
 	text-align: left;
 	font-size: 16px;
