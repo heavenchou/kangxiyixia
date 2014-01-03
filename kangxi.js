@@ -205,6 +205,7 @@ $( document ).ready(function() {
 		function() {
 			clearTimeout(waittime);
 			$("body").css("background-image", "url(image/main_back.jpg)");
+			document.getElementById("page0_audio").pause();
 			$("#page0").hide();
 			$("#page1").show();
 			show_msg(1);
@@ -403,8 +404,7 @@ $( document ).ready(function() {
 			// 上方康熙字典選單
 	  		$(".mainpage").hide();
 			show_msg(0);	
-			var myVideo = document.getElementById("page13_video");
-			myVideo.pause();
+			document.getElementById("page13_video").pause();
 	  		$("#page9").show();
 	  		$("#tofind").focus();
 	  		active_page = 9;
@@ -424,8 +424,7 @@ $( document ).ready(function() {
 		  	$("#message").css("opacity", 1);	
 		  	
 	  		$(".mainpage").hide();
-			var myVideo = document.getElementById("page13_video");
-			myVideo.pause();
+			document.getElementById("page13_video").pause();
 	  		show_page1();
 	});
 	$("#menu_3").mouseenter(
@@ -443,8 +442,7 @@ $( document ).ready(function() {
 			draw_page7();
 	  		$(".mainpage").hide();
 			show_msg(0);
-			var myVideo = document.getElementById("page13_video");
-			myVideo.pause();
+			document.getElementById("page13_video").pause();
 			$("#page7").stop(false,true);	// 避免此按鈕重覆一直按會造成錯誤
 			$("#img_stick_h").stop(false,true);
 			stick_h_animate($("#page7"));
