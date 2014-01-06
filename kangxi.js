@@ -597,7 +597,12 @@ $( document ).ready(function() {
 	// 起始動畫
 	var stage = new swiffy.Stage(document.getElementById('swiffycontainer'), swiffyobject);
 	stage.start();
-	var waittime = setTimeout('$("#page0_next").click()',20000);
+	var waittime = setTimeout('$("#page0_next").click()',20000);	// 綁定起始動畫結束時間
+	$("#page0_audio2")[0].addEventListener("play", function()
+	{
+		setTimeout('$("#page0_audio2")[0].pause()',1000);				// 起始動畫翻書聲限定1秒
+	});
+	
 });
 
 // 由文字取得筆畫
