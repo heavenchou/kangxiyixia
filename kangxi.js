@@ -388,6 +388,7 @@ $( document ).ready(function() {
 			$("#page5").hide();
 			$("#page12").hide();
 			stick_h_animate($("#page6"));
+			$("#out_name_all").scrollTop(0);
 			active_page = 6;
 			return false;
 	});
@@ -446,6 +447,7 @@ $( document ).ready(function() {
 			$("#page7").stop(false,true);	// 避免此按鈕重覆一直按會造成錯誤
 			$("#img_stick_h").stop(false,true);
 			stick_h_animate($("#page7"));
+			$("#out_name_sele").scrollTop(0);
 	  		active_page = 7;
 	  		return false;
 	});
@@ -853,6 +855,7 @@ function show_page8(myname23 , mystrokes)
 	
 	$(".mainpage").hide();
 	stick_v_animate($("#page8"));
+	$("#say80").scrollTop(0);
 	active_page = 8;
 	return false;		
 }
