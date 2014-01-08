@@ -205,6 +205,8 @@ $( document ).ready(function() {
 		function() {
 			clearTimeout(waittime);
 			$("body").css("background-image", "url(image/main_back.jpg)");
+			$("#menu_5").css("background-image" , "url(image/menu5_b.png)");
+			$("#menu_6").css("background-image" , "url(image/menu6_b.png)");
 			document.getElementById("page0_audio").pause();
 			$("#page0").hide();
 			$("#page1").show();
@@ -464,13 +466,31 @@ $( document ).ready(function() {
 		function() {
 			show_page13();
 	});
+	// 關於我們
+	$("#menu_5").mouseenter(
+		function() {
+			$("#menu_5").css("background-image" , "url(image/menu5.png)");
+	});
+	$("#menu_5").mouseleave(
+		function() {
+			$("#menu_5").css("background-image" , "url(image/menu5_b.png)");
+	});
 	$("#menu_5").click(
 		function() {
-			location.assign("reference.htm");
+			location.assign("about.htm");
+	});
+	// 使用說明
+	$("#menu_6").mouseenter(
+		function() {
+			$("#menu_6").css("background-image" , "url(image/menu6.png)");
+	});
+	$("#menu_6").mouseleave(
+		function() {
+			$("#menu_6").css("background-image" , "url(image/menu6_b.png)");
 	});
 	$("#menu_6").click(
 		function() {
-			location.assign("about.htm");
+			location.assign("readme.htm");
 	});
 	// 康熙字典切換解釋與部件
 	$("#page9_menu_glypheme").mouseenter(
@@ -929,7 +949,7 @@ function stick_h_animate(obj)
 {
 	var w = obj.width();
 	obj.width(60+53-16);	 // 60: 左邊寬度, 53: 右軸寬度 , 16: 右邊透明的部份
-	$("#img_stick_h").css("left", "210px");  // 150 (原始 left) + 60
+	$("#img_stick_h").css("left", "180px");  // 120 (原始 left) + 60
 	obj.show();
 	$("#page11").show();
 	
@@ -940,7 +960,7 @@ function stick_h_animate(obj)
 		}
 	);
 	$( "#img_stick_h" ).animate({
-			left: 210 + 640 - 53	// 總長 700 - 60 = 640
+			left: 180 + 640 - 53	// 總長 700 - 60 = 640
 		}, 1000
 	);
 }

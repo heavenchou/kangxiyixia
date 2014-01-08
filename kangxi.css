@@ -27,8 +27,9 @@ div#menu_1 { left: 370px; }
 div#menu_2 { left: 500px; }
 div#menu_3 { left: 628px; }
 div#menu_4 { left: 755px; }
-div#menu_5 { left: 713px; top: 80px; width: 77px; height: 24px;}
-div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
+
+div#menu_5 { left: 827px; top: 476px; width: 43px; height: 42px;}
+div#menu_6 { left: 827px; top: 536px; width: 43px; height: 42px;}
 
 /* 首頁動畫 */
 #swiffycontainer {
@@ -132,7 +133,7 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 /* 第六頁, 第七頁, 第十頁 (名單) */
 #page6, #page7, #page10 {
 	position: absolute;
-	left: 150px;
+	left: 120px;
 	top: 186px;
 	width: 700px;
 	height: 430px;
@@ -230,20 +231,20 @@ div#menu_6 { left: 795px; top: 80px; width: 77px; height: 24px;}
 /* 第九頁 康熙字典 */
 #img_dict {
 	position: absolute;
-	left: 128px;
+	left: 140px;
 	top: 176px;
 }
 #tofind {
 	position: absolute;
 	left: 208px;
-	top: 219px;
+	top: 220px;
 	width: 520px;
 	height: 35px;
 	font-size: 16px;
 	background: #fff;
 }
 #page9_explain {
-	left: 180px;
+	left: 155px;
 	top: 350px;
 	width: 650px;
 	height: 230px;
