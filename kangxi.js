@@ -952,7 +952,8 @@ function stick_h_animate(obj)
 	$("#img_stick_h").css("left", "180px");  // 120 (原始 left) + 60
 	obj.show();
 	$("#page11").show();
-	
+	$("#page0_audio2")[0].currentTime = 0;
+	$("#page0_audio2")[0].play();
 	obj.animate({
 			width: w-16
 		}, 1000 , function() {
@@ -973,6 +974,8 @@ function stick_v_animate(obj)
 	$("#img_stick_v").css("top", "246px");  // 204 (原始 top) + 42
 	obj.show();
 	$("#page12").show();
+	$("#page0_audio2")[0].currentTime = 0;
+	$("#page0_audio2")[0].play();
 	
 	obj.animate({
 			height: h-17
