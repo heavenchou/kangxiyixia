@@ -477,7 +477,10 @@ $( document ).ready(function() {
 	});
 	$("#menu_5").click(
 		function() {
-			location.assign("about.htm");
+			$(".mainpage").hide();
+			show_msg(0);
+			document.getElementById("page13_video").pause();
+			$("#page14").show();
 	});
 	// 使用說明
 	$("#menu_6").mouseenter(
@@ -615,6 +618,20 @@ $( document ).ready(function() {
 				alert("沒有連接網路哦");
 			}
 	});
+	// 關於我們的連結
+	$("#page14_link1").click(
+		function () {
+			location.assign("http://udnword.com/");
+	});
+	$("#page14_link2").click(
+		function () {
+			location.assign("http://www.adcs.org.tw/");
+	});
+	$("#page14_link3").click(
+		function () {
+			location.assign("http://www.palmforce.com.tw/");
+	});
+	
 	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
 	// 起始動畫
 	var stage = new swiffy.Stage(document.getElementById('swiffycontainer'), swiffyobject);
@@ -906,7 +923,7 @@ function show_page13()
 }
 
 // 秀出訊息
-// 0: 不呈現 1: 愛卿何事? 2:朕知道了 5:page5 的提示畫面
+// 0: 不呈現 1: 愛卿何事? 2:朕知道了 5:page5 的提示畫面 6:關於我們的畫面
 function show_msg(msg)
 {
 	$("#message").hide();
@@ -933,6 +950,13 @@ function show_msg(msg)
 		$("#message").css("left", "620px");
 		$("#message").css("top", "185px");
 		$("#img_message").attr("src", "image/msg_page5.png");
+		$("#message").show();
+	}
+	else if(msg == 6)
+	{
+		$("#message").css("left", "620px");
+		$("#message").css("top", "185px");
+		$("#img_message").attr("src", "image/msg_about.png");
 		$("#message").show();
 	}
 	else
