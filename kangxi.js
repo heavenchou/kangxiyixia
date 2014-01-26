@@ -199,6 +199,7 @@ say80[81] = "奉天　承運皇帝　詔曰【你是一個很特別的人，高�
 var name23 = [];		// 所以候選名字的陣列
 var sele_name = [];		// 入闈陣列, 和 name23 陣列同步, 裡面是 0 或 1 , 1 表示有選上
 var active_page = 1;
+var readme_page = 1;
 
 $( document ).ready(function() {
 	$("#page0_next").click(
@@ -405,9 +406,7 @@ $( document ).ready(function() {
 	$("#menu_1").click(
 		function() {
 			// 上方康熙字典選單
-	  		$(".mainpage").hide();
-			show_msg(0);	
-			document.getElementById("page13_video").pause();
+	  		hide_all();
 	  		$("#page9").show();
 	  		$("#tofind").focus();
 	  		active_page = 9;
@@ -423,11 +422,7 @@ $( document ).ready(function() {
 	$("#menu_2").click(
 		function() {
 		  	// 上方鐵口直斷選單
-		  	$("#message").stop();				// 若是正在秀 "朕知道了" , 要中斷該動畫狀態
-		  	$("#message").css("opacity", 1);	
-		  	
-	  		$(".mainpage").hide();
-			document.getElementById("page13_video").pause();
+	  		hide_all();
 	  		show_page1();
 	});
 	$("#menu_3").mouseenter(
@@ -443,9 +438,7 @@ $( document ).ready(function() {
 			// 上方入闈榜單選單
 			// 畫出 page 7 候選字介面
 			draw_page7();
-	  		$(".mainpage").hide();
-			show_msg(0);
-			document.getElementById("page13_video").pause();
+	  		hide_all();
 			$("#page7").stop(false,true);	// 避免此按鈕重覆一直按會造成錯誤
 			$("#img_stick_h").stop(false,true);
 			stick_h_animate($("#page7"));
@@ -477,10 +470,9 @@ $( document ).ready(function() {
 	});
 	$("#menu_5").click(
 		function() {
-			$(".mainpage").hide();
-			show_msg(0);
-			document.getElementById("page13_video").pause();
+			hide_all();
 			$("#page14").show();
+			active_page = 14;
 	});
 	// 使用說明
 	$("#menu_6").mouseenter(
@@ -493,7 +485,8 @@ $( document ).ready(function() {
 	});
 	$("#menu_6").click(
 		function() {
-			location.assign("readme.htm");
+			hide_all();
+			show_page15();
 	});
 	// 康熙字典切換解釋與部件
 	$("#page9_menu_glypheme").mouseenter(
@@ -631,7 +624,46 @@ $( document ).ready(function() {
 		function () {
 			location.assign("http://www.palmforce.com.tw/");
 	});
-	
+	// 說明的連結
+	$("#readme_home").click(
+		function () {
+			$("#menu_2").click();
+	});	
+	$("#readme_next").click(
+		function () {
+			readme_page++;
+			if(readme_page >= 16)
+			{
+				readme_page = 16;
+				$("#readme_next").css("opacity","0.2");
+				$("#readme_next").css("cursor","default");
+			}
+			else
+			{
+				$("#readme_pre").css("opacity","1");
+				$("#readme_pre").css("cursor","pointer");
+			}
+			imgurl = "url(image/readme" + readme_page + ".jpg)";
+			$("#page15").css("background-image", imgurl);
+			
+	});	
+	$("#readme_pre").click(
+		function () {
+			readme_page--;
+			if(readme_page <= 1)
+			{
+				readme_page = 1;
+				$("#readme_pre").css("opacity","0.2");
+				$("#readme_pre").css("cursor","default");
+			}
+			else
+			{
+				$("#readme_next").css("opacity","1");
+				$("#readme_next").css("cursor","pointer");
+			}
+			imgurl = "url(image/readme" + readme_page + ".jpg)";
+			$("#page15").css("background-image", imgurl);
+	});	
 	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
 	// 起始動畫
 	var stage = new swiffy.Stage(document.getElementById('swiffycontainer'), swiffyobject);
@@ -900,8 +932,7 @@ function show_page8(myname23 , mystrokes)
 // 呈現 page10 團隊名單
 function show_page10()
 {
-	$(".mainpage").hide();
-	show_msg(0);
+	hide_all();
 	stick_h_animate($("#page10"));
 	$("#member_list").scrollTop(0);
 	active_page = 10;
@@ -911,14 +942,26 @@ function show_page10()
 // 呈現 page13 數位 E 筆
 function show_page13()
 {
-	$(".mainpage").hide();
-	show_msg(0);
+	hide_all();
 	// $("#page13").show();
-	var myVideo = document.getElementById("page13_video");
-	myVideo.pause();
-	myVideo.currentTime = 1;
+	document.getElementById("page13_video").currentTime = 1;
 	$("#page13").slideDown( "slow" );
 	active_page = 13;
+	return false;
+}
+
+// 呈現 page15 Readme
+function show_page15()
+{
+	hide_all();
+	readme_page = 1;
+	$("#page15").css("background-image", "url(image/readme1.jpg)");
+	$("#readme_next").css("cursor","pointer");
+	$("#readme_next").css("opacity","1");
+	$("#readme_pre").css("cursor","default");
+	$("#readme_pre").css("opacity","0.2");
+	$("#page15").show();
+	active_page = 15;
 	return false;
 }
 
@@ -950,13 +993,6 @@ function show_msg(msg)
 		$("#message").css("left", "620px");
 		$("#message").css("top", "185px");
 		$("#img_message").attr("src", "image/msg_page5.png");
-		$("#message").show();
-	}
-	else if(msg == 6)
-	{
-		$("#message").css("left", "620px");
-		$("#message").css("top", "185px");
-		$("#img_message").attr("src", "image/msg_about.png");
 		$("#message").show();
 	}
 	else
@@ -1011,4 +1047,16 @@ function stick_v_animate(obj)
 			top: 246 + 354 - 45	// 總高 396 - 42 = 354
 		}, 1000
 	);
+}
+
+// 關閉全部畫面
+function hide_all()
+{
+	// 若是正在秀 "朕知道了" , 要中斷該動畫狀態
+  	$("#message").stop();				
+  	$("#message").css("opacity", 1);	
+  	
+	$(".mainpage").hide();
+	show_msg(0);
+	document.getElementById("page13_video").pause();	
 }
