@@ -23,10 +23,10 @@ div.menu {
 	height: 50px;
 	cursor: pointer;
 }
-div#menu_1 { left: 370px; }
-div#menu_2 { left: 500px; }
-div#menu_3 { left: 628px; }
-div#menu_4 { left: 755px; }
+div#menu_1 { left: 370px;}
+div#menu_2 { left: 500px; display: none; }
+div#menu_3 { left: 628px; display: none; }
+div#menu_4 { left: 755px; left: 502px;}
 
 div#menu_5 { left: 827px; top: 476px; width: 43px; height: 42px;}
 div#menu_6 { left: 827px; top: 536px; width: 43px; height: 42px;}

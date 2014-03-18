@@ -205,15 +205,20 @@ $( document ).ready(function() {
 	$("#page0_next").click(
 		function() {
 			clearTimeout(waittime);
-			$("body").css("background-image", "url(image/main_back.jpg)");
+			$("body").css("background-image", "url(image/main_back2.jpg)");
 			$("#menu_5").css("background-image" , "url(image/menu5_b.png)");
 			$("#menu_6").css("background-image" , "url(image/menu6_b.png)");
 			document.getElementById("page0_audio").pause();
 			$("#page0").hide();
-			$("#page1").show();
-			show_msg(1);
-			$("#input_name1").focus();
-			active_page = 1;
+			
+			// 這是先執行鐵口直斷
+			//$("#page1").show();
+			//show_msg(1);
+			//$("#input_name1").focus();
+			//active_page = 1;
+			
+			// 這是先執行康熙字典
+			$("#menu_1").click();
 	});
 	$("#form1").submit(
 		function() {
@@ -627,7 +632,7 @@ $( document ).ready(function() {
 	// 說明的連結
 	$("#readme_home").click(
 		function () {
-			$("#menu_2").click();
+			$("#menu_1").click();
 	});	
 	$("#readme_next").click(
 		function () {
