@@ -506,13 +506,14 @@ $( document ).ready(function() {
 		function() {
 			if( $("#glypheme").css("display") == "none")
 			{
-				$("#page9_explain > div").hide();
+				// $("#page9_explain_left > div").hide();
+				$(".tab-pane").hide();
 				$("#glypheme").show();
 			}
 			else
 			{
-				$("#page9_explain > div").hide();
-				$("#explain").show();
+				// $("#page9_explain > div").hide();
+				// $("#explain").show();
 			}
 			$("#page9_explain").scrollTop(0);
 	});
@@ -529,13 +530,14 @@ $( document ).ready(function() {
 		function() {
 			if( $("#fulltext").css("display") == "none")
 			{
-				$("#page9_explain > div").hide();
+				//$("#page9_explain_left > div").hide();
+				$(".tab-pane").hide();
 				$("#fulltext").show();
 			}
 			else
 			{
-				$("#page9_explain > div").hide();
-				$("#explain").show();
+				// $("#page9_explain > div").hide();
+				// $("#explain").show();
 			}
 			$("#page9_explain").scrollTop(0);
 	});
@@ -552,13 +554,14 @@ $( document ).ready(function() {
 		function() {
 			if( $("#pb").css("display") == "none")
 			{
-				$("#page9_explain > div").hide();
+				//$("#page9_explain_left > div").hide();
+				$(".tab-pane").hide();
 				$("#pb").show();
 			}
 			else
 			{
-				$("#page9_explain > div").hide();
-				$("#explain").show();
+				// $("#page9_explain > div").hide();
+				// $("#explain").show();
 			}
 			$("#page9_explain").scrollTop(0);
 	});
@@ -586,13 +589,14 @@ $( document ).ready(function() {
 		function() {
 			if( $("#pron").css("display") == "none")
 			{
-				$("#page9_explain > div").hide();
+				//$("#page9_explain_left > div").hide();
+				$(".tab-pane").hide();
 				$("#pron").show();
 			}
 			else
 			{
-				$("#page9_explain > div").hide();
-				$("#explain").show();
+				// $("#page9_explain > div").hide();
+				// $("#explain").show();
 			}
 			$("#page9_explain").scrollTop(0);
 	});

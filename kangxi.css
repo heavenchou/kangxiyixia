@@ -243,10 +243,19 @@ div#menu_6 { left: 827px; top: 536px; width: 43px; height: 42px;}
 	font-size: 16px;
 	background: #fff;
 }
-#page9_explain {
+#page9_explain_left , #glypheme , #fulltext , #pb , #pron {
 	left: 155px;
 	top: 350px;
-	width: 650px;
+	width: 250px;
+	height: 230px;
+	/* color : black; */
+	font-size: 16px;
+	overflow: auto;
+}
+#page9_explain {
+	left: 405px;
+	top: 350px;
+	width: 400px;
 	height: 230px;
 	/* color : black; */
 	font-size: 16px;

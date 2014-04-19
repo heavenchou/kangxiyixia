@@ -26,11 +26,11 @@ define(['underscore','backbone','text!./result.tmpl','text!./item.tmpl'],
      // $(e.target).addClass('active');
       if (e.target.tagName!=="A") e.target=e.target.parentElement;
       $e=$(e.target);
-      //this.sandbox.emit("wh.change", $e.data("wh"),this.model.get("tofind")) ;
-      this.sandbox.emit("tofind.change", $e.data("wh"));
-      $("#tofind").val($e.data("wh"));
-      $("#page9_explain > div").hide();
-      $("#explain").show();
+      this.sandbox.emit("wh.change", $e.data("wh"),this.model.get("tofind")) ;
+      //this.sandbox.emit("tofind.change", $e.data("wh"));
+      //$("#tofind").val($e.data("wh"));
+      //$("#page9_explain > div").hide();
+      //$("#explain").show();
     },
     loadscreenful:function() {
       var res=this.model.get("res");
