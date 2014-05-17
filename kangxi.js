@@ -202,14 +202,31 @@ var active_page = 1;
 var readme_page = 1;
 
 $( document ).ready(function() {
+	
+	// 一開始要做的事
+	window_resize();
+	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
+	// 起始動畫
+	var stage = new swiffy.Stage(document.getElementById('swiffycontainer'), swiffyobject);
+	stage.start();
+	var waittime = setTimeout('$("#page0_next").click()',20000);	// 綁定起始動畫結束時間
+	$("#page0_audio2")[0].addEventListener("play", function()
+	{
+		setTimeout('$("#page0_audio2")[0].pause()',1000);			// 起始動畫翻書聲限定1秒
+	});
+	
+	// 忽略片頭動畫
 	$("#page0_next").click(
 		function() {
 			clearTimeout(waittime);
-			$("body").css("background-image", "url(image/main_back2.jpg)");
-			$("#menu_5").css("background-image" , "url(image/menu5_b.png)");
-			$("#menu_6").css("background-image" , "url(image/menu6_b.png)");
 			document.getElementById("page0_audio").pause();
 			$("#page0").hide();
+			
+			$("body").css("background-image", "url(image/bodyBG.jpg)");
+			$("#main_background").css("background-image", "url(image/main_bg.jpg)");
+			$("div.menu").show();
+			object_location("#tofind", 520,313,752,47);	// 在一開始時, #tofind 還沒產生, 所以這時定位才有用
+			object_location("#tofind", 520,313,720,30);	// 在一開始時, #tofind 還沒產生, 所以這時定位才有用
 			
 			// 這是先執行鐵口直斷
 			//$("#page1").show();
@@ -402,11 +419,11 @@ $( document ).ready(function() {
 	});
 	$("#menu_1").mouseenter(
 		function() {
-			$("#menu_1").css("background-image" , "url(image/menu1.jpg)");
+			$("#menu_1").css("background-image" , "url(image/topbtn1-2.png)");
 	});
 	$("#menu_1").mouseleave(
 		function() {
-			$("#menu_1").css("background-image" , "");
+			$("#menu_1").css("background-image" , "url(image/topbtn1.png)");
 	});
 	$("#menu_1").click(
 		function() {
@@ -416,20 +433,22 @@ $( document ).ready(function() {
 	  		$("#tofind").focus();
 	  		active_page = 9;
 	});
+	
+	// 數位 E 筆
 	$("#menu_2").mouseenter(
 		function() {
-			$("#menu_2").css("background-image" , "url(image/menu2.jpg)");
+			$("#menu_2").css("background-image" , "url(image/topbtn2-2.png)");
 	});
 	$("#menu_2").mouseleave(
 		function() {
-			$("#menu_2").css("background-image" , "");
+			$("#menu_2").css("background-image" , "url(image/topbtn2.png)");
 	});
 	$("#menu_2").click(
 		function() {
-		  	// 上方鐵口直斷選單
-	  		hide_all();
-	  		show_page1();
+			show_page13();
 	});
+	
+	/*
 	$("#menu_3").mouseenter(
 		function() {
 			$("#menu_3").css("background-image" , "url(image/menu3.jpg)");
@@ -439,6 +458,21 @@ $( document ).ready(function() {
 			$("#menu_3").css("background-image" , "");
 	});
 	$("#menu_3").click(
+		function() {
+		  	// 上方鐵口直斷選單
+	  		hide_all();
+	  		show_page1();
+	});
+	
+	$("#menu_4").mouseenter(
+		function() {
+			$("#menu_4").css("background-image" , "url(image/menu3.jpg)");
+	});
+	$("#menu_4").mouseleave(
+		function() {
+			$("#menu_4").css("background-image" , "");
+	});
+	$("#menu_4").click(
 		function() {
 			// 上方入闈榜單選單
 			// 畫出 page 7 候選字介面
@@ -451,27 +485,16 @@ $( document ).ready(function() {
 	  		active_page = 7;
 	  		return false;
 	});
-	// 數位 E 筆
-	$("#menu_4").mouseenter(
-		function() {
-			$("#menu_4").css("background-image" , "url(image/menu4.jpg)");
-	});
-	$("#menu_4").mouseleave(
-		function() {
-			$("#menu_4").css("background-image" , "");
-	});
-	$("#menu_4").click(
-		function() {
-			show_page13();
-	});
+	*/
+	
 	// 關於我們
 	$("#menu_5").mouseenter(
 		function() {
-			$("#menu_5").css("background-image" , "url(image/menu5.png)");
+			$("#menu_5").css("background-image" , "url(image/topbtn5-2.png)");
 	});
 	$("#menu_5").mouseleave(
 		function() {
-			$("#menu_5").css("background-image" , "url(image/menu5_b.png)");
+			$("#menu_5").css("background-image" , "url(image/topbtn5.png)");
 	});
 	$("#menu_5").click(
 		function() {
@@ -482,17 +505,18 @@ $( document ).ready(function() {
 	// 使用說明
 	$("#menu_6").mouseenter(
 		function() {
-			$("#menu_6").css("background-image" , "url(image/menu6.png)");
+			$("#menu_6").css("background-image" , "url(image/topbtn6-2.png)");
 	});
 	$("#menu_6").mouseleave(
 		function() {
-			$("#menu_6").css("background-image" , "url(image/menu6_b.png)");
+			$("#menu_6").css("background-image" , "url(image/topbtn6.png)");
 	});
 	$("#menu_6").click(
 		function() {
 			hide_all();
 			show_page15();
 	});
+	
 	// 康熙字典切換解釋與部件
 	$("#page9_menu_glypheme").mouseenter(
 		function() {
@@ -565,7 +589,6 @@ $( document ).ready(function() {
 			}
 			$("#page9_explain").scrollTop(0);
 	});
-	/*
 	// 康熙字典-筆劃
 	$("#page9_menu_strokes").mouseenter(
 		function() {
@@ -575,7 +598,6 @@ $( document ).ready(function() {
 		function() {
 			$("#page9_menu_strokes").css("background-image" , "url(image/wordbookBtn4.png)");
 	});
-	*/
 	// 康熙字典-同音
 	$("#page9_menu_pron").mouseenter(
 		function() {
@@ -672,17 +694,7 @@ $( document ).ready(function() {
 			}
 			imgurl = "url(image/readme" + readme_page + ".jpg)";
 			$("#page15").css("background-image", imgurl);
-	});	
-	$("#out_name_sele").html(localStorage.kangxiyixia_page7);	// 載入入圍名單
-	// 起始動畫
-	var stage = new swiffy.Stage(document.getElementById('swiffycontainer'), swiffyobject);
-	stage.start();
-	var waittime = setTimeout('$("#page0_next").click()',20000);	// 綁定起始動畫結束時間
-	$("#page0_audio2")[0].addEventListener("play", function()
-	{
-		setTimeout('$("#page0_audio2")[0].pause()',1000);				// 起始動畫翻書聲限定1秒
 	});
-	
 });
 
 // 由文字取得筆畫
@@ -952,7 +964,7 @@ function show_page10()
 function show_page13()
 {
 	hide_all();
-	// $("#page13").show();
+	$("#page13").show();
 	document.getElementById("page13_video").currentTime = 1;
 	$("#page13").slideDown( "slow" );
 	active_page = 13;
@@ -1068,4 +1080,87 @@ function hide_all()
 	$(".mainpage").hide();
 	show_msg(0);
 	document.getElementById("page13_video").pause();	
+}
+
+function window_resize()
+{
+	// 主視窗大小
+	win_height = $(window).height();
+	win_width = $(window).width();
+	
+	// 計算實際容納畫面的大小
+	if((win_width / win_height) >= (1920 / 1200))	// 更寬的螢幕
+	{
+		my_height = win_height;	// 高度設為最高
+		my_width = my_height * 1920 / 1200;	// 算出寬度
+		my_top = 0;
+		my_left = (win_width - my_width) / 2
+	}
+	else
+	{
+		// 更長的螢幕
+		my_width = win_width;	// 寬度設為最寬
+		my_height = my_width * 1200 / 1920;	// 算出高度
+		my_left = 0;
+		my_top = (win_height - my_height) / 2		
+	}
+	my_rate = my_width / 1920;	// 這是本畫面與原圖的比率
+	
+	object_location("#swiffycontainer", 127,0,1667,1200);	// 片頭動畫 (這是 1000 x 720 依比率放大成 1667 x 1200)
+	object_location("#page0_next", 1383+127,1100,167,67);	// 片頭動畫的 Skip 位置 (這是 100 x 40 依比率放大成 167 x 67)
+	
+	// 主背景圖的位置
+		
+	object_location("#main_background", 0,0,1920,1200);
+	$("#main_background").css("background-size" , my_width);
+	
+	// 上方主選單
+	object_location("#menu_1",722,165,203,59);
+	$("#menu_1").css("background-size" , 203 * my_rate);
+	$("#menu_1").css("background-image" , "url(image/topbtn1.png)");
+	object_location("#menu_2",940,165,190,59);
+	$("#menu_2").css("background-size" , 190 * my_rate);
+	$("#menu_2").css("background-image" , "url(image/topbtn2.png)");
+	object_location("#menu_5",1140,165,208,59);
+	$("#menu_5").css("background-size" , 208 * my_rate);
+	$("#menu_5").css("background-image" , "url(image/topbtn5.png)");
+	object_location("#menu_6",1358,165,214,59);
+	$("#menu_6").css("background-size" , 214 * my_rate);
+	$("#menu_6").css("background-image" , "url(image/topbtn6.png)");
+	
+	// 定位康熙字典元件
+	// tofind 輸入欄 (520,313,752,47)
+	// object_location("#tofind", 520,313,752,47); // 此時還沒產生 #tofind , 要稍候才能定位
+	// 選單
+	object_location("#page9_menu_glypheme", 519,394,127,45);
+	$("#page9_menu_glypheme").css("background-size" , 127 * my_rate);
+	object_location("#page9_menu_fulltext", 658,394,127,45);
+	$("#page9_menu_fulltext").css("background-size" , 127 * my_rate);
+	object_location("#page9_menu_pb", 798,394,127,45);
+	$("#page9_menu_pb").css("background-size" , 127 * my_rate);
+	object_location("#page9_menu_strokes", 939,394,127,45);
+	$("#page9_menu_strokes").css("background-size" , 127 * my_rate);
+	object_location("#page9_menu_pron", 1078,394,127,45);
+	$("#page9_menu_pron").css("background-size" , 127 * my_rate);
+	object_location("#page9_menu_dict", 1220,394,173,45);
+	$("#page9_menu_dict").css("background-size" , 173 * my_rate);
+	// 字典左邊的選字區
+	object_location("#glypheme", 326,470,426,549);
+	object_location("#fulltext", 326,470,426,549);
+	object_location("#pb", 326,470,426,549);
+	object_location("#pron", 326,470,426,549);
+	// 字典右邊的解釋區
+	object_location("#page9_explain", 754,470,865,549);
+	
+	// 數位E筆
+	object_location("#page13", 320,260,1280,800);
+	object_location("#page13_video", 320,260,1280,800);
+}
+
+function object_location(obj,left,top,width,Height)
+{
+	$(obj).css("left", left * my_rate + my_left);
+	$(obj).css("top", top * my_rate + my_top);
+	$(obj).width(width * my_rate);
+	$(obj).height(Height * my_rate);
 }

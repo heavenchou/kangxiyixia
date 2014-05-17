@@ -14,6 +14,7 @@
     <script src="open.js"></script>
 </head>
 <body>
+    <div id="main_background"></div>
     <!-- 上方選單按鈕 ----------------------------------------------- -->
     <div id="menu_1" class="menu"></div>
     <div id="menu_2" class="menu"></div>
@@ -25,6 +26,7 @@
 	<div id="page0">
 	    <div id="swiffycontainer"></div>
 		<div id="page0_next"></div>
+		<!-- 若動畫語音檔單獨處理時, 就要用此版本 -->
 		<audio id="page0_audio" autoplay>
   			<source src="open.ogg" type="audio/ogg">
 			您的瀏覽器沒有支援語音播放喔.
@@ -81,13 +83,13 @@
     </div>
     <!-- page 9 字典 -------------------------------------------------- -->
 	<div id="page9" class="mainpage">
-		<img id="img_dict" src="image/dict.jpg"/>
+		<!-- <img id="img_dict" src="image3/dict.jpg"/> -->
 		<div data-aura-widget="tofind-widget" id="page9_word"></div>
 		
 		<div id="page9_menu_glypheme" class="dict_menu"></div>
 		<div id="page9_menu_fulltext" class="dict_menu"></div>
 		<div id="page9_menu_pb" class="dict_menu"></div>
-		<!-- <div id="page9_menu_strokes" class="dict_menu"></div> -->
+		<div id="page9_menu_strokes" class="dict_menu"></div>
 		<div id="page9_menu_pron" class="dict_menu"></div>
 		<div id="page9_menu_dict" class="dict_menu"></div>
 		

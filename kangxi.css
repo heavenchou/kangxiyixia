@@ -1,5 +1,6 @@
-body {
-	background-repeat: no-repeat;
+body {
+	background: #250601;
+	background-repeat: repeat;
 	font-family: 微軟正黑體;
 	margin: 0px;
 	font-size: 14px;
@@ -17,32 +18,17 @@ div {
 
 /* 上方選單 */
 div.menu {
+	display: none;
 	position: absolute;
-	top: 109px;
-	width: 127px;
-	height: 50px;
 	cursor: pointer;
 }
-div#menu_1 { left: 370px;}
-div#menu_2 { left: 500px; display: none; }
-div#menu_3 { left: 628px; display: none; }
-div#menu_4 { left: 755px; left: 502px;}
 
-div#menu_5 { left: 827px; top: 476px; width: 43px; height: 42px;}
-div#menu_6 { left: 827px; top: 536px; width: 43px; height: 42px;}
+/* 上方選單 鐵口直斷與入闡榜單先隱藏起來 */
+div#menu_3, div#menu_4 {display: none; }
 
 /* 首頁動畫 */
-#swiffycontainer {
-	left: 0px;
-	top: 0px;
-	width: 1000px;
-	height: 720px;
-}
+
 #page0_next {
-	left: 830px;
-	top: 660px;
-	width: 105px;
-	height: 45px;
 	cursor: pointer;
 	border: solid 0px #666;
 }
@@ -236,27 +222,15 @@ div#menu_6 { left: 827px; top: 536px; width: 43px; height: 42px;}
 }
 #tofind {
 	position: absolute;
-	left: 208px;
-	top: 220px;
-	width: 520px;
-	height: 35px;
 	font-size: 16px;
 	background: #fff;
 }
-#page9_explain_left , #glypheme , #fulltext , #pb , #pron {
-	left: 155px;
-	top: 350px;
-	width: 250px;
-	height: 230px;
+#glypheme , #fulltext , #pb , #pron {
 	/* color : black; */
 	font-size: 16px;
 	overflow: auto;
 }
 #page9_explain {
-	left: 405px;
-	top: 350px;
-	width: 400px;
-	height: 230px;
 	/* color : black; */
 	font-size: 16px;
 	overflow: auto;
@@ -282,12 +256,12 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 	height: 31px;
 }
 
-#page9_menu_glypheme { left: 207px; width:83px; background-image: url(image/wordbookBtn1.png); cursor: pointer;}
-#page9_menu_fulltext { left: 307px; width:83px; background-image: url(image/wordbookBtn2.png); cursor: pointer;}
-#page9_menu_pb { left: 407px; width:83px; background-image: url(image/wordbookBtn3.png); cursor: pointer;}
-/* #page9_menu_strokes { left: 486px; width:83px; background-image: url(image/wordbookBtn4.png);} */
-#page9_menu_pron { left: 507px; width:83px; background-image: url(image/wordbookBtn5.png); cursor: pointer;}
-#page9_menu_dict { left: 608px; width:120px; background-image: url(image/wordbookBtn6.png); cursor: pointer;}
+#page9_menu_glypheme { background-image: url(image/wordbookBtn1.png); cursor: pointer;}
+#page9_menu_fulltext { background-image: url(image/wordbookBtn2.png); cursor: pointer;}
+#page9_menu_pb { background-image: url(image/wordbookBtn3.png); cursor: pointer;}
+#page9_menu_strokes { background-image: url(image/wordbookBtn4.png); cursor: pointer;}
+#page9_menu_pron { background-image: url(image/wordbookBtn5.png); cursor: pointer;}
+#page9_menu_dict { background-image: url(image/wordbookBtn6.png); cursor: pointer;}
 
 /* 數位E筆 */
 
@@ -295,8 +269,8 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 	top: 180px;
 	left: 140px;
 	height: 450px;
-	z-index: -1;
-/*	background-color: black;
+/*		z-index: -1;
+	background-color: black;
 	box-shadow: 0px 10px 10px #9B5628; */
 }
 

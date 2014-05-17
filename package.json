@@ -5,7 +5,8 @@
   "main": "index.html",
   "single-instance":true,
   "window": {
-    "toolbar": true,
+  	"fullscreen": true,
+    "toolbar": false,
     "resizable": true,
     "width": 1000,
     "height": 760
