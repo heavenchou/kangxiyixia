@@ -222,8 +222,10 @@ $( document ).ready(function() {
 			document.getElementById("page0_audio").pause();
 			$("#page0").hide();
 			
+			// 動畫結束後, 才畫主畫面
 			$("body").css("background-image", "url(image/bodyBG.jpg)");
 			$("#main_background").css("background-image", "url(image/main_bg.jpg)");
+			$("#logo").css("background-image", "url(image/logo.png)");
 			$("div.menu").show();
 			object_location("#tofind", 520,313,752,47);	// 在一開始時, #tofind 還沒產生, 所以這時定位才有用
 			object_location("#tofind", 520,313,720,30);	// 在一開始時, #tofind 還沒產生, 所以這時定位才有用, 而且不知為什麼大小會變大, 所以這行是刻意縮小
@@ -1117,21 +1119,24 @@ function window_resize()
 	object_location("#page0_next", 1383+127,1100,167,67);	// 片頭動畫的 Skip 位置 (這是 100 x 40 依比率放大成 167 x 67)
 	
 	// 主背景圖的位置
-		
 	object_location("#main_background", 0,0,1920,1200);
 	$("#main_background").css("background-size" , my_width);
 	
+	// Logo
+	object_location("#logo", 280,110,506,164);
+	$("#logo").css("background-size" , 506 * my_rate);
+	
 	// 上方主選單
-	object_location("#menu_1",722,165,203,59);
+	object_location("#menu_1",782,165,203,59);
 	$("#menu_1").css("background-size" , 203 * my_rate);
 	$("#menu_1").css("background-image" , "url(image/topbtn1.png)");
-	object_location("#menu_2",940,165,190,59);
+	object_location("#menu_2",1000,165,190,59);
 	$("#menu_2").css("background-size" , 190 * my_rate);
 	$("#menu_2").css("background-image" , "url(image/topbtn2.png)");
-	object_location("#menu_5",1140,165,208,59);
+	object_location("#menu_5",1200,165,208,59);
 	$("#menu_5").css("background-size" , 208 * my_rate);
 	$("#menu_5").css("background-image" , "url(image/topbtn5.png)");
-	object_location("#menu_6",1358,165,214,59);
+	object_location("#menu_6",1418,165,214,59);
 	$("#menu_6").css("background-size" , 214 * my_rate);
 	$("#menu_6").css("background-image" , "url(image/topbtn6.png)");
 	

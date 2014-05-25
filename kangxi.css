@@ -216,7 +216,6 @@ div#menu_3, div#menu_4 {display: none; }
 
 /* 第九頁 康熙字典 */
 #page9_yellowbg {
-	position: absolute;
 	background-image: url(image/paper_big.png);
 }
 
@@ -277,14 +276,11 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 /* 關於我們 */
 
 #page14_king {
-	position: absolute;
 	background-image: url(image/king.png);
 }
 #page14_msg {
-	position: absolute;
 	background-image: url(image/talkbox.png);
 }
-
 #page14_link1 , #page14_link2 , #page14_link3 {
 	cursor: pointer;
 }
