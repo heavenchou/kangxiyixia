@@ -1,4 +1,4 @@
-body {
+body {
 	background: #250601;
 	background-repeat: repeat;
 	font-family: 微軟正黑體;
@@ -215,11 +215,11 @@ div#menu_3, div#menu_4 {display: none; }
 }
 
 /* 第九頁 康熙字典 */
-#img_dict {
+#page9_yellowbg {
 	position: absolute;
-	left: 140px;
-	top: 176px;
+	background-image: url(image/paper_big.png);
 }
+
 #tofind {
 	position: absolute;
 	font-size: 16px;
@@ -276,38 +276,16 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 
 /* 關於我們 */
 
-#page14 {
-	top: 224px;
-	left: 156px;
-	height: 331px;
-	width: 334px;
-	background-image: url(image/msg_about.png);
+#page14_king {
+	position: absolute;
+	background-image: url(image/king.png);
+}
+#page14_msg {
+	position: absolute;
+	background-image: url(image/talkbox.png);
 }
 
-#page14_link1 {
-	position: relative;
-	top: 20px;
-	left: 10px;
-	height: 80px;
-	width: 290px;
-	cursor: pointer;
-}
-
-#page14_link2 {
-	position: relative;
-	top: 30px;
-	left: 10px;
-	height: 80px;
-	width: 290px;
-	cursor: pointer;
-}
-
-#page14_link3 {
-	position: relative;
-	top: 40px;
-	left: 10px;
-	height: 100px;
-	width: 290px;
+#page14_link1 , #page14_link2 , #page14_link3 {
 	cursor: pointer;
 }
 
