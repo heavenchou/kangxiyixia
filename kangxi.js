@@ -1147,17 +1147,17 @@ function window_resize()
 	object_location("#page9_yellowbg", 285,428,1356,624);
 	$("#page9_yellowbg").css("background-size" , 1356 * my_rate);
 	// 選單
-	object_location("#page9_menu_glypheme", 519,394,127,45);
+	object_location("#page9_menu_glypheme", 520,394,127,45);
 	$("#page9_menu_glypheme").css("background-size" , 127 * my_rate);
-	object_location("#page9_menu_fulltext", 658,394,127,45);
+	object_location("#page9_menu_fulltext", 666,394,127,45);
 	$("#page9_menu_fulltext").css("background-size" , 127 * my_rate);
-	object_location("#page9_menu_pb", 798,394,127,45);
+	object_location("#page9_menu_pb", 812,394,127,45);
 	$("#page9_menu_pb").css("background-size" , 127 * my_rate);
-	object_location("#page9_menu_strokes", 939,394,127,45);
-	$("#page9_menu_strokes").css("background-size" , 127 * my_rate);
-	object_location("#page9_menu_pron", 1078,394,127,45);
+	//object_location("#page9_menu_strokes", 939,394,127,45);
+	//$("#page9_menu_strokes").css("background-size" , 127 * my_rate);
+	object_location("#page9_menu_pron", 958,394,127,45);
 	$("#page9_menu_pron").css("background-size" , 127 * my_rate);
-	object_location("#page9_menu_dict", 1220,394,173,45);
+	object_location("#page9_menu_dict", 1104,394,173,45);
 	$("#page9_menu_dict").css("background-size" , 173 * my_rate);
 	// 字典左邊的選字區
 	object_location("#glypheme", 326,470,426,549);
