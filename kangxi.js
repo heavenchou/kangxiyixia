@@ -518,6 +518,14 @@ $( document ).ready(function() {
 			show_page15();
 	});
 	
+	$("#menu_close").click(
+		function() {
+			// 關閉主視窗
+			var gui = require('nw.gui');
+			var win = gui.Window.get();
+			win.close();
+	});
+	
 	// 康熙字典切換解釋與部件
 	$("#page9_menu_glypheme").mouseenter(
 		function() {
@@ -1139,6 +1147,9 @@ function window_resize()
 	object_location("#menu_6",1418,165,214,59);
 	$("#menu_6").css("background-size" , 214 * my_rate);
 	$("#menu_6").css("background-image" , "url(image/topbtn6.png)");
+	object_location("#menu_close",1845,30,65,64);
+	$("#menu_close").css("background-size" , 65 * my_rate);
+	$("#menu_close").css("background-image" , "url(image/close.png)");
 	
 	// 定位康熙字典元件
 	// tofind 輸入欄 (520,313,752,47)
