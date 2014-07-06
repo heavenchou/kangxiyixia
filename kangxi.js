@@ -525,6 +525,13 @@ $( document ).ready(function() {
 			var win = gui.Window.get();
 			win.close();
 	});
+	$("#menu_winmin").click(
+		function() {
+			// 縮小主視窗
+			var gui = require('nw.gui');
+			var win = gui.Window.get();
+			win.minimize();
+	});
 	
 	// 康熙字典切換解釋與部件
 	$("#page9_menu_glypheme").mouseenter(
@@ -644,12 +651,86 @@ $( document ).ready(function() {
 		function() {
 			if(navigator.onLine)
 			{
-				location.assign("http://dict.revised.moe.edu.tw/");
+				// location.assign("http://dict.revised.moe.edu.tw/");
+				window.open("http://dict.revised.moe.edu.tw/", "", "width=800, height=600");
 			}
 			else
 			{
 				alert("沒有連接網路哦");
 			}
+	});
+	// 數位E筆
+	$("#page13_menu1").mouseenter(
+		function() {
+			$("#page13_menu1").css("background-image" , "url(image/t01_.jpg)");
+	});
+	$("#page13_menu1").mouseleave(
+		function() {
+			$("#page13_menu1").css("background-image" , "url(image/t01.jpg)");
+	});
+	$("#page13_menu1").click(
+		function() {
+			page13_video_display('video1.mp4');
+	});
+	$("#page13_menu2").mouseenter(
+		function() {
+			$("#page13_menu2").css("background-image" , "url(image/t02_.jpg)");
+	});
+	$("#page13_menu2").mouseleave(
+		function() {
+			$("#page13_menu2").css("background-image" , "url(image/t02.jpg)");
+	});
+	$("#page13_menu2").click(
+		function() {
+			page13_video_display('video2.mp4');
+	});
+	$("#page13_menu3").mouseenter(
+		function() {
+			$("#page13_menu3").css("background-image" , "url(image/t03_.jpg)");
+	});
+	$("#page13_menu3").mouseleave(
+		function() {
+			$("#page13_menu3").css("background-image" , "url(image/t03.jpg)");
+	});
+	$("#page13_menu3").click(
+		function() {
+			page13_video_display('video3.mp4');
+	});
+	$("#page13_menu4").mouseenter(
+		function() {
+			$("#page13_menu4").css("background-image" , "url(image/t04_.jpg)");
+	});
+	$("#page13_menu4").mouseleave(
+		function() {
+			$("#page13_menu4").css("background-image" , "url(image/t04.jpg)");
+	});
+	$("#page13_menu4").click(
+		function() {
+			page13_video_display('video4.mp4');
+	});
+	$("#page13_menu5").mouseenter(
+		function() {
+			$("#page13_menu5").css("background-image" , "url(image/t05_.jpg)");
+	});
+	$("#page13_menu5").mouseleave(
+		function() {
+			$("#page13_menu5").css("background-image" , "url(image/t05.jpg)");
+	});
+	$("#page13_menu5").click(
+		function() {
+			page13_video_display('video5.mp4');
+	});
+	$("#page13_menu6").mouseenter(
+		function() {
+			$("#page13_menu6").css("background-image" , "url(image/t06_.jpg)");
+	});
+	$("#page13_menu6").mouseleave(
+		function() {
+			$("#page13_menu6").css("background-image" , "url(image/t06.jpg)");
+	});
+	$("#page13_menu6").click(
+		function() {
+			page13_video_display('video6.mp4');
 	});
 	// 關於我們的連結
 	$("#page14_link1").click(
@@ -973,11 +1054,28 @@ function show_page10()
 function show_page13()
 {
 	hide_all();
+	$("#page13_video").hide();
+	$("#page13 .page13_menu").show();
 	$("#page13").show();
-	document.getElementById("page13_video").currentTime = 1;
 	$("#page13").slideDown( "slow" );
 	active_page = 13;
 	return false;
+}
+
+// 播放 page13 數位 E 筆
+function page13_video_display(item)
+{
+	$("#page13 .page13_menu").hide();
+	document.getElementById("page13_video").src = item;
+	document.getElementById("page13_video").load();
+	document.getElementById("page13_video").play();
+	$("#page13_video").show();
+	
+	// 結束後就回到選單
+	document.getElementById("page13_video").addEventListener("ended", function()
+	{
+		show_page13();
+	});
 }
 
 // 呈現 page14 關於我們
@@ -1150,6 +1248,9 @@ function window_resize()
 	object_location("#menu_close",1845,30,65,64);
 	$("#menu_close").css("background-size" , 65 * my_rate);
 	$("#menu_close").css("background-image" , "url(image/close.png)");
+	object_location("#menu_winmin",1845,100,65,64);
+	$("#menu_winmin").css("background-size" , 65 * my_rate);
+	$("#menu_winmin").css("background-image" , "url(image/narrow.png)");
 	
 	// 定位康熙字典元件
 	// tofind 輸入欄 (520,313,752,47)
@@ -1179,8 +1280,27 @@ function window_resize()
 	object_location("#page9_explain", 754,470,865,549);
 	
 	// 數位E筆
-	object_location("#page13", 320,260,1280,800);
-	object_location("#page13_video", 320,260,1280,800);
+	object_location("#page13", 360,270,1200,800);
+	$("#page13").css("background-size" , 1200 * my_rate);
+	object_location("#page13_menu1", 320,200,60,321,1);
+	object_location("#page13_menu2", 420,200,60,321,1);
+	object_location("#page13_menu3", 520,200,60,321,1);
+	object_location("#page13_menu4", 620,200,60,321,1);
+	object_location("#page13_menu5", 720,200,60,321,1);
+	object_location("#page13_menu6", 820,200,60,321,1);
+	$("#page13_menu1").css("background-size" , 60 * my_rate);
+	$("#page13_menu2").css("background-size" , 60 * my_rate);
+	$("#page13_menu3").css("background-size" , 60 * my_rate);
+	$("#page13_menu4").css("background-size" , 60 * my_rate);
+	$("#page13_menu5").css("background-size" , 60 * my_rate);
+	$("#page13_menu6").css("background-size" , 60 * my_rate);
+	$("#page13_menu1").css("background-image" , "url(image/t01.jpg)");
+	$("#page13_menu2").css("background-image" , "url(image/t02.jpg)");
+	$("#page13_menu3").css("background-image" , "url(image/t03.jpg)");
+	$("#page13_menu4").css("background-image" , "url(image/t04.jpg)");
+	$("#page13_menu5").css("background-image" , "url(image/t05.jpg)");
+	$("#page13_menu6").css("background-image" , "url(image/t06.jpg)");
+	object_location("#page13_video", 360,270,1200,800);
 	
 	// 關於我們
 	object_location("#page14_king", 430,208,1283,889);
@@ -1192,10 +1312,23 @@ function window_resize()
 	object_location("#page14_link3", 400,660,420,125);
 }
 
-function object_location(obj,left,top,width,Height)
+// 計算物件的位置及大小
+// 若是相對在 div 中, 最後要傳入 1 , 就不用做移位了
+function object_location(obj,left,top,width,Height,indiv)
 {
-	$(obj).css("left", left * my_rate + my_left);
-	$(obj).css("top", top * my_rate + my_top);
+	indiv = indiv || 0;	// 若沒傳入則為 0
+	
+	if(indiv==1)
+	{
+		$(obj).css("left", left * my_rate);
+		$(obj).css("top", top * my_rate);
+	}
+	else
+	{
+		$(obj).css("left", left * my_rate + my_left);
+		$(obj).css("top", top * my_rate + my_top);
+	}
 	$(obj).width(width * my_rate);
 	$(obj).height(Height * my_rate);
 }
+
