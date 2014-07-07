@@ -735,15 +735,18 @@ $( document ).ready(function() {
 	// 關於我們的連結
 	$("#page14_link1").click(
 		function () {
-			location.assign("http://udnword.com/");
+			//location.assign("http://udnword.com/");
+			window.open("http://udnword.com/", "", "width=800, height=600");
 	});
 	$("#page14_link2").click(
 		function () {
-			location.assign("http://www.adcs.org.tw/");
+			//location.assign("http://www.adcs.org.tw/");
+			window.open("http://www.adcs.org.tw/", "", "width=800, height=600");
 	});
 	$("#page14_link3").click(
 		function () {
-			location.assign("http://www.palmforce.com.tw/");
+			//location.assign("http://www.palmforce.com.tw/");
+			window.open("http://www.palmforce.com.tw/", "", "width=800, height=600");
 	});
 	// 說明的連結
 	$("#readme_home").click(
