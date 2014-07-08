@@ -9,7 +9,8 @@
     "toolbar": false,
     "resizable": true,
     "width": 1920,
-    "height": 1200
+    "height": 1200,
+    "icon": "kangxiyixia.ico"
   },
   "webkit": {
     "plugin": true
