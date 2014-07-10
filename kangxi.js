@@ -1261,6 +1261,8 @@ function window_resize()
 	// 背景
 	object_location("#page9_yellowbg", 285,428,1356,624);
 	$("#page9_yellowbg").css("background-size" , 1356 * my_rate);
+	// 放大鏡
+	object_location("#page9_glass", 1305,302,64,64);
 	// 選單
 	object_location("#page9_menu_glypheme", 520,394,127,45);
 	$("#page9_menu_glypheme").css("background-size" , 127 * my_rate);

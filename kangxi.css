@@ -219,6 +219,8 @@ div#menu_3, div#menu_4 {display: none; }
 	background-image: url(image/paper_big.png);
 }
 
+#page9_glass { cursor: pointer; }
+
 #tofind {
 	position: absolute;
 	font-size: 16px;
