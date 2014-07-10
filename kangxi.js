@@ -1099,7 +1099,7 @@ function show_page15()
 	$("#readme_next").css("opacity","1");
 	$("#readme_pre").css("cursor","default");
 	$("#readme_pre").css("opacity","0.2");
-	$("#page15").show();
+	$("#page15_main").show();
 	active_page = 15;
 	return false;
 }
@@ -1364,12 +1364,17 @@ function readme_resize()
 		new_top = (win_height - new_height) / 2		
 	}
 	new_rate = new_width / 1920;	// 這是本畫面與原圖的比率
+
+	$("#page15_main").css("left", 0);
+	$("#page15_main").css("top", 0);
+	$("#page15_main").width(win_width);
+	$("#page15_main").height(win_height);
 	
 	readme_object_location("#page15",0,0,1920,1080,new_rate,new_left,new_top);
 	$("#page15").css("background-size" , 1920 * new_rate);
-	readme_object_location2("#readme_home",937,19,48,48,new_rate,new_left,new_top);
-	readme_object_location2("#readme_pre",106,517,48,48,new_rate,new_left,new_top);
-	readme_object_location2("#readme_next",1779,517,48,48,new_rate,new_left,new_top);
+	readme_object_location("#readme_home",937,19,48,48,new_rate,new_left,new_top);
+	readme_object_location("#readme_pre",106,517,48,48,new_rate,new_left,new_top);
+	readme_object_location("#readme_next",1779,517,48,48,new_rate,new_left,new_top);
 }
 
 // 說明專用的比例

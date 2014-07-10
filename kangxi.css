@@ -288,6 +288,9 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 
 /* 說明 */
 
+#page15_main {
+ background-color:#000000; 
+}
 #page15 {
  background-color:#000000; 
 }
