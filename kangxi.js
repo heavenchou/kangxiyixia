@@ -756,9 +756,9 @@ $( document ).ready(function() {
 	$("#readme_next").click(
 		function () {
 			readme_page++;
-			if(readme_page >= 16)
+			if(readme_page >= 10)
 			{
-				readme_page = 16;
+				readme_page = 10;
 				$("#readme_next").css("opacity","0.2");
 				$("#readme_next").css("cursor","default");
 			}
@@ -1313,6 +1313,10 @@ function window_resize()
 	object_location("#page14_link1", 400,330,420,140);
 	object_location("#page14_link2", 400,500,420,120);
 	object_location("#page14_link3", 400,660,420,125);
+	
+	//說明
+	readme_resize();
+	
 }
 
 // 計算物件的位置及大小
@@ -1335,3 +1339,52 @@ function object_location(obj,left,top,width,Height,indiv)
 	$(obj).height(Height * my_rate);
 }
 
+// readme 的 size 比較不同, 所以要重新計算
+
+function readme_resize()
+{
+	// 主視窗大小
+	win_height = $(window).height();
+	win_width = $(window).width();
+	
+	// 計算實際容納畫面的大小
+	if((win_width / win_height) >= (1920 / 1080))	// 更寬的螢幕
+	{
+		new_height = win_height;	// 高度設為最高
+		new_width = new_height * 1920 / 1080;	// 算出寬度
+		new_top = 0;
+		new_left = (win_width - new_width) / 2
+	}
+	else
+	{
+		// 更長的螢幕
+		new_width = win_width;	// 寬度設為最寬
+		new_height = new_width * 1080 / 1920;	// 算出高度
+		new_left = 0;
+		new_top = (win_height - new_height) / 2		
+	}
+	new_rate = new_width / 1920;	// 這是本畫面與原圖的比率
+	
+	readme_object_location("#page15",0,0,1920,1080,new_rate,new_left,new_top);
+	$("#page15").css("background-size" , 1920 * new_rate);
+	readme_object_location2("#readme_home",937,19,48,48,new_rate,new_left,new_top);
+	readme_object_location2("#readme_pre",106,517,48,48,new_rate,new_left,new_top);
+	readme_object_location2("#readme_next",1779,517,48,48,new_rate,new_left,new_top);
+}
+
+// 說明專用的比例
+function readme_object_location(obj,left,top,width,Height,new_rate,new_left,new_top)
+{
+	$(obj).css("left", left * new_rate + new_left);
+	$(obj).css("top", top * new_rate + new_top);
+	$(obj).width(width * new_rate);
+	$(obj).height(Height * new_rate);
+}
+// 沒有位移的版本
+function readme_object_location2(obj,left,top,width,Height,new_rate,new_left,new_top)
+{
+	$(obj).css("left", left * new_rate);
+	$(obj).css("top", top * new_rate);
+	$(obj).width(width * new_rate);
+	$(obj).height(Height * new_rate);
+}

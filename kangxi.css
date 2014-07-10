@@ -289,38 +289,20 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 /* 說明 */
 
 #page15 {
-	top: 0px;
-	left: 0px;
-	height: 720px;
-	width: 1000px;
+ background-color:#000000; 
 }
 
 #readme_home {
-	position: relative;
-	top: 18px;
-	left: 483px;
-	height: 35px;
-	width: 35px;
 	cursor: pointer;
-	background-image: url(image/readme_home.png);
+	/* background-image: url(image/readme_home.png); */
 }
 #readme_next {
-	position: relative;
-	top: 307px;
-	left: 943px;
-	height: 35px;
-	width: 35px;
 	cursor: pointer;
-	background-image: url(image/readme_next.png);
+	/* background-image: url(image/readme_next.png); */
 }
 #readme_pre {
-	position: relative;
-	top: 272px;
-	left: 21px;
-	height: 35px;
-	width: 35px;
 	cursor: pointer;
-	background-image: url(image/readme_pre.png);
+	/* background-image: url(image/readme_pre.png); */
 }
 
 /* 訊息 */
