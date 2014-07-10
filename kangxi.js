@@ -533,6 +533,15 @@ $( document ).ready(function() {
 			win.minimize();
 	});
 	
+	// 康熙字典放大鏡
+	$("#page9_glass").mouseenter(
+		function() {
+			$("#page9_glass").css("background-image" , "url(image/searchIcon_hover.png)");
+	});
+	$("#page9_glass").mouseleave(
+		function() {
+			$("#page9_glass").css("background-image" , "url(image/searchIcon.png)");
+	});	
 	// 康熙字典切換解釋與部件
 	$("#page9_menu_glypheme").mouseenter(
 		function() {
@@ -1263,6 +1272,7 @@ function window_resize()
 	$("#page9_yellowbg").css("background-size" , 1356 * my_rate);
 	// 放大鏡
 	object_location("#page9_glass", 1305,302,64,64);
+	$("#page9_glass").css("background-size" , 64 * my_rate);
 	// 選單
 	object_location("#page9_menu_glypheme", 520,394,127,45);
 	$("#page9_menu_glypheme").css("background-size" , 127 * my_rate);
@@ -1309,7 +1319,7 @@ function window_resize()
 	
 	// 關於我們
 	object_location("#page14_king", 430,208,1283,889);
-	$("#page14_king").css("background-size" , 1263 * my_rate);
+	$("#page14_king").css("background-size" , 1263 * my_rate);	// 1263 是刻意的
 	object_location("#page14_msg", 363,296,530,540);
 	$("#page14_msg").css("background-size" , 530 * my_rate);
 	object_location("#page14_link1", 400,330,420,140);
@@ -1373,10 +1383,13 @@ function readme_resize()
 	$("#page15_main").height(win_height);
 	
 	readme_object_location("#page15",0,0,1920,1080,new_rate,new_left,new_top);
+	readme_object_location("#readme_home",937,19,45,45,new_rate,new_left,new_top);
+	readme_object_location("#readme_pre",106,517,45,45,new_rate,new_left,new_top);
+	readme_object_location("#readme_next",1779,517,45,45,new_rate,new_left,new_top);
 	$("#page15").css("background-size" , 1920 * new_rate);
-	readme_object_location("#readme_home",937,19,48,48,new_rate,new_left,new_top);
-	readme_object_location("#readme_pre",106,517,48,48,new_rate,new_left,new_top);
-	readme_object_location("#readme_next",1779,517,48,48,new_rate,new_left,new_top);
+	$("#readme_home").css("background-size" , 45 * new_rate);
+	$("#readme_pre").css("background-size" , 45 * new_rate);
+	$("#readme_next").css("background-size" , 45 * new_rate);
 }
 
 // 說明專用的比例
@@ -1384,14 +1397,6 @@ function readme_object_location(obj,left,top,width,Height,new_rate,new_left,new_
 {
 	$(obj).css("left", left * new_rate + new_left);
 	$(obj).css("top", top * new_rate + new_top);
-	$(obj).width(width * new_rate);
-	$(obj).height(Height * new_rate);
-}
-// 沒有位移的版本
-function readme_object_location2(obj,left,top,width,Height,new_rate,new_left,new_top)
-{
-	$(obj).css("left", left * new_rate);
-	$(obj).css("top", top * new_rate);
 	$(obj).width(width * new_rate);
 	$(obj).height(Height * new_rate);
 }

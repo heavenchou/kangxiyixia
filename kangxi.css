@@ -219,7 +219,10 @@ div#menu_3, div#menu_4 {display: none; }
 	background-image: url(image/paper_big.png);
 }
 
-#page9_glass { cursor: pointer; }
+#page9_glass { 
+	cursor: pointer;
+	background-image: url(image/searchIcon.png);
+}
 
 #tofind {
 	position: absolute;
@@ -299,15 +302,15 @@ a.list-group-item:hover { background-color: #ECAF78; } /* 尋找全文滑鼠指�
 
 #readme_home {
 	cursor: pointer;
-	/* background-image: url(image/readme_home.png); */
+	background-image: url(image/readme_home.png);
 }
 #readme_next {
 	cursor: pointer;
-	/* background-image: url(image/readme_next.png); */
+	background-image: url(image/readme_next.png);
 }
 #readme_pre {
 	cursor: pointer;
-	/* background-image: url(image/readme_pre.png); */
+	background-image: url(image/readme_pre.png);
 }
 
 /* 訊息 */
