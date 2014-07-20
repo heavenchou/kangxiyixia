@@ -604,13 +604,9 @@ $( document ).ready(function() {
 			if( $("#pb").css("display") == "none")
 			{
 				//$("#page9_explain_left > div").hide();
+				$("#page9_readme").hide();
 				$(".tab-pane").hide();
 				$("#pb").show();
-			}
-			else
-			{
-				// $("#page9_explain > div").hide();
-				// $("#explain").show();
 			}
 			$("#page9_explain").scrollTop(0);
 	});
@@ -637,13 +633,9 @@ $( document ).ready(function() {
 			if( $("#pron").css("display") == "none")
 			{
 				//$("#page9_explain_left > div").hide();
+				$("#page9_readme").hide();
 				$(".tab-pane").hide();
 				$("#pron").show();
-			}
-			else
-			{
-				// $("#page9_explain > div").hide();
-				// $("#explain").show();
 			}
 			$("#page9_explain").scrollTop(0);
 	});
@@ -741,16 +733,52 @@ $( document ).ready(function() {
 		function() {
 			page13_video_display('video6.mp4');
 	});
+	$("#page13_menu7").mouseenter(
+		function() {
+			$("#page13_menu7").css("background-image" , "url(image/weblink_btn_hover.png)");
+	});
+	$("#page13_menu7").mouseleave(
+		function() {
+			$("#page13_menu7").css("background-image" , "url(image/weblink_btn.png)");
+	});
+	$("#page13_menu7").click(
+		function() {
+			//page13_video_display('video6.mp4');
+	});
 	// 關於我們的連結
+	$("#page14_link1").mouseenter(
+		function() {
+			$("#page14_link1").css("background-image" , "url(image/Logo_udn_hover.png)");
+	});
+	$("#page14_link1").mouseleave(
+		function() {
+			$("#page14_link1").css("background-image" , "url(image/Logo_udn.png)");
+	});
 	$("#page14_link1").click(
 		function () {
 			//location.assign("http://udnword.com/");
 			window.open("http://udnword.com/", "", "width=800, height=600");
 	});
+	$("#page14_link2").mouseenter(
+		function() {
+			$("#page14_link2").css("background-image" , "url(image/Logo_adcs_hover.png)");
+	});
+	$("#page14_link2").mouseleave(
+		function() {
+			$("#page14_link2").css("background-image" , "url(image/Logo_adcs.png)");
+	});
 	$("#page14_link2").click(
 		function () {
 			//location.assign("http://www.adcs.org.tw/");
 			window.open("http://www.adcs.org.tw/", "", "width=800, height=600");
+	});
+	$("#page14_link3").mouseenter(
+		function() {
+			$("#page14_link3").css("background-image" , "url(image/Logo_palmforce_hover.png)");
+	});
+	$("#page14_link3").mouseleave(
+		function() {
+			$("#page14_link3").css("background-image" , "url(image/Logo_palmforce.png)");
 	});
 	$("#page14_link3").click(
 		function () {
@@ -1286,6 +1314,8 @@ function window_resize()
 	$("#page9_menu_pron").css("background-size" , 127 * my_rate);
 	object_location("#page9_menu_dict", 1104,394,173,45);
 	$("#page9_menu_dict").css("background-size" , 173 * my_rate);
+	// 字典初始的說明區
+	object_location("#page9_readme", 326,470,1291,549);
 	// 字典左邊的選字區
 	object_location("#glypheme", 326,470,426,549);
 	object_location("#fulltext", 326,470,426,549);
@@ -1297,34 +1327,42 @@ function window_resize()
 	// 數位E筆
 	object_location("#page13", 360,270,1200,800);
 	$("#page13").css("background-size" , 1200 * my_rate);
-	object_location("#page13_menu1", 320,200,60,321,1);
-	object_location("#page13_menu2", 420,200,60,321,1);
-	object_location("#page13_menu3", 520,200,60,321,1);
-	object_location("#page13_menu4", 620,200,60,321,1);
-	object_location("#page13_menu5", 720,200,60,321,1);
-	object_location("#page13_menu6", 820,200,60,321,1);
-	$("#page13_menu1").css("background-size" , 60 * my_rate);
-	$("#page13_menu2").css("background-size" , 60 * my_rate);
-	$("#page13_menu3").css("background-size" , 60 * my_rate);
-	$("#page13_menu4").css("background-size" , 60 * my_rate);
-	$("#page13_menu5").css("background-size" , 60 * my_rate);
-	$("#page13_menu6").css("background-size" , 60 * my_rate);
+	object_location("#page13_menu1", 233,120,100,535,1);	// 1200/480 * 60 = 100, 1200/480 * 321 = 535
+	object_location("#page13_menu2", 233+128,120,100,535,1);
+	object_location("#page13_menu3", 233+128*2,120,100,535,1);
+	object_location("#page13_menu4", 233+128*3,120,100,535,1);
+	object_location("#page13_menu5", 233+128*4,120,100,535,1);
+	object_location("#page13_menu6", 233+128*5,120,100,535,1);
+	$("#page13_menu1").css("background-size" , 100 * my_rate);
+	$("#page13_menu2").css("background-size" , 100 * my_rate);
+	$("#page13_menu3").css("background-size" , 100 * my_rate);
+	$("#page13_menu4").css("background-size" , 100 * my_rate);
+	$("#page13_menu5").css("background-size" , 100 * my_rate);
+	$("#page13_menu6").css("background-size" , 100 * my_rate);
 	$("#page13_menu1").css("background-image" , "url(image/t01.jpg)");
 	$("#page13_menu2").css("background-image" , "url(image/t02.jpg)");
 	$("#page13_menu3").css("background-image" , "url(image/t03.jpg)");
 	$("#page13_menu4").css("background-image" , "url(image/t04.jpg)");
 	$("#page13_menu5").css("background-image" , "url(image/t05.jpg)");
 	$("#page13_menu6").css("background-image" , "url(image/t06.jpg)");
+	
+	object_location("#page13_menu7", 397,744,251,54,1);		// 1200/480 = 1.6667 , (151, 33) x 1.666667 => (251.6667 , 55)
+	$("#page13_menu7").css("background-size" , 251 * my_rate);
+	$("#page13_menu7").css("background-image" , "url(image/weblink_btn.png)");
+	
 	object_location("#page13_video", 360,270,1200,800);
 	
 	// 關於我們
 	object_location("#page14_king", 430,208,1283,889);
 	$("#page14_king").css("background-size" , 1263 * my_rate);	// 1263 是刻意的
-	object_location("#page14_msg", 363,296,530,540);
+	object_location("#page14_msg", 363,296,530,559);
 	$("#page14_msg").css("background-size" , 530 * my_rate);
-	object_location("#page14_link1", 400,330,420,140);
-	object_location("#page14_link2", 400,500,420,120);
-	object_location("#page14_link3", 400,660,420,125);
+	object_location("#page14_link1", 369,300,486,170);
+	object_location("#page14_link2", 369,470,486,170);
+	object_location("#page14_link3", 369,640,486,170);
+	$("#page14_link1").css("background-size" , 486 * my_rate);
+	$("#page14_link2").css("background-size" , 486 * my_rate);
+	$("#page14_link3").css("background-size" , 486 * my_rate);
 	
 	//說明
 	readme_resize();

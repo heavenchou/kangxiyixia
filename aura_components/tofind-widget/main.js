@@ -5,6 +5,7 @@ define(['underscore','text!./tofind.tmpl'], function(_,template) {
     	"keyup #tofind":"dosearch",
     },
     dosearch:function() {
+    	$("#page9_readme").hide();
         if (this.timer) clearTimeout(this.timer);
         var that=this;
         this.timer=setTimeout(function(){
