@@ -743,7 +743,7 @@ $( document ).ready(function() {
 	});
 	$("#page13_menu7").click(
 		function() {
-			//page13_video_display('video6.mp4');
+			window.open("http://www.finearts.tku.edu.tw/ccfac/index.html", "", "width=800, height=600");
 	});
 	// 關於我們的連結
 	$("#page14_link1").mouseenter(
