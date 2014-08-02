@@ -227,8 +227,6 @@ $( document ).ready(function() {
 			$("#main_background").css("background-image", "url(image/main_bg.jpg)");
 			$("#logo").css("background-image", "url(image/logo.png)");
 			$("div.menu").show();
-			object_location("#tofind", 520,313,752,47);	// 在一開始時, #tofind 還沒產生, 所以這時定位才有用
-			object_location("#tofind", 520,313,720,30);	// 在一開始時, #tofind 還沒產生, 所以這時定位才有用, 而且不知為什麼大小會變大, 所以這行是刻意縮小
 			
 			// 這是先執行鐵口直斷
 			//$("#page1").show();
@@ -1295,6 +1293,7 @@ function window_resize()
 	// 定位康熙字典元件
 	// tofind 輸入欄 (520,313,752,47)
 	// object_location("#tofind", 520,313,752,47); // 此時還沒產生 #tofind , 要稍候才能定位
+	tofind_timeout = window.setInterval("check_tofind()",300);	// 每 300 毫秒檢查 tofind 產生了沒? 產生了才定位
 	// 背景
 	object_location("#page9_yellowbg", 285,428,1356,624);
 	$("#page9_yellowbg").css("background-size" , 1356 * my_rate);
@@ -1367,6 +1366,17 @@ function window_resize()
 	//說明
 	readme_resize();
 	
+}
+
+// 每 500 毫秒檢查 tofind 產生了沒? 產生了才定位
+function check_tofind()
+{
+	if($("#tofind").length)
+	{
+		object_location("#tofind", 520,313,752,47);
+		object_location("#tofind", 520,313,720,30);	// 不知為什麼大小會變大, 所以這行是刻意縮小
+		tofind_timeout = window.clearInterval(tofind_timeout);
+	}
 }
 
 // 計算物件的位置及大小
